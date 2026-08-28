@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block titre %}Forces – Betclic Élite{% endblock %}
+{% block contenu %}
+
+<h1>Forces des clubs</h1>
+<p class="sub">
+  L'Elo résume le niveau en un nombre ; l'attaque et la défense disent combien
+  de points un club marquerait, et encaisserait, face à un adversaire moyen
+  sur terrain neutre.
+</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="lbl">Niveau de marque</div>
+    <div class="val">{{ '%.0f'|format(total) }}</div>
+    <div class="hint">points par match, deux équipes confondues</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Avantage du terrain</div>
+    <div class="val">{{ '%.1f'|format(home_pts) }}</div>
+    <div class="hint">points, soit {{ '%.0f'|format(home_elo) }} points Elo</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Échelle Elo</div>
+    <div class="val">{{ '%.0f'|format(elo_pt) }}</div>
+    <div class="hint">points Elo pour 1 point d'écart au score</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Rythme partagé</div>
+    <div class="val">{{ '%.1f'|format(100 * (pace ** 0.5)) }} %</div>
+    <div class="hint">variation de rythme d'un match à l'autre</div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">Club</th>
+        <th>Elo</th><th>Matchs</th>
+        <th>Attaque</th><th>Défense</th><th>Écart net</th>
+        <th>Historique</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+      <tr>
+        <td class="club"><span class="dot" style="background: {{ r.club|couleur }}"></span>{{ r.club }}</td>
+        <td class="num"><b>{{ '%.0f'|format(r.elo) }}</b></td>
+        <td class="num dim">{{ r.matchs }}</td>
+        <td class="num">{{ '%.1f'|format(r.attaque) if r.attaque else '–' }}</td>
+        <td class="num">{{ '%.1f'|format(r.defense) if r.defense else '–' }}</td>
+        <td class="num {{ 'up' if r.net and r.net > 0 else 'down' }}">
+          {{ '%+.1f'|format(r.net) if r.net is not none else '–' }}</td>
+        <td class="num">
+          <span class="meter" style="display:inline-block; width:80px; vertical-align:middle">
+            <i style="width: {{ 100 * r.conf }}%"></i></span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="note">
+  <b>Historique</b> mesure le volume de matchs récents disponibles pour un club.
+  Une jauge vide signale un promu ou un revenant : ses forces d'attaque et de
+  défense ne veulent rien dire, et la prévision s'appuie alors presque
+  uniquement sur son Elo d'arrivée — lui-même prudent par construction.
+</div>
+
+{% endblock %}

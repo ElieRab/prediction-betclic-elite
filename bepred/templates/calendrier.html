@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block titre %}Calendrier – Betclic Élite{% endblock %}
+{% block contenu %}
+
+<h1>Matchs à venir</h1>
+<p class="sub">
+  Chaque affiche restante de la saison régulière, avec la probabilité de victoire
+  du club qui reçoit, l'écart attendu et le total de points attendu.
+</p>
+
+{% if statique %}
+<div class="form-row" style="margin-bottom:18px">
+  <div class="field">
+    <label for="club">Filtrer par club</label>
+    <select id="club" onchange="location.href = this.value">
+      <option value="{{ url_for('calendrier', sc=sc) }}">Tous les clubs</option>
+      {% for t in teams %}
+        <option value="{{ url_for('calendrier', sc=sc, club=t) }}"
+                {{ 'selected' if t == club }}>{{ t }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+{% else %}
+<form method="get" class="form-row" style="margin-bottom:18px">
+  <input type="hidden" name="sc" value="{{ sc }}">
+  <div class="field">
+    <label for="club">Filtrer par club</label>
+    <select name="club" id="club">
+      <option value="">Tous les clubs</option>
+      {% for t in teams %}
+        <option value="{{ t }}" {{ 'selected' if t == club }}>{{ t }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button class="go">Afficher</button>
+</form>
+{% endif %}
+
+<div class="panel">
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>J</th>
+        <th style="text-align:left">Domicile</th>
+        <th style="text-align:left">Extérieur</th>
+        <th>Score attendu</th><th>Écart</th><th>Total</th>
+        <th>Dom.</th><th>Ext.</th><th>Prolong.</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for m in matchs %}
+      <tr>
+        <td class="num dim">{{ m.journee }}</td>
+        <td class="club"><span class="dot" style="background: {{ m.home|couleur }}"></span>{{ m.home }}</td>
+        <td class="club"><span class="dot" style="background: {{ m.away|couleur }}"></span>{{ m.away }}</td>
+        <td class="num">{{ '%.0f'|format(m.lam_h) }} – {{ '%.0f'|format(m.lam_a) }}</td>
+        <td class="num {{ 'up' if m.marge > 0 else 'down' }}">{{ '%+.1f'|format(m.marge) }}</td>
+        <td class="num dim">{{ '%.0f'|format(m.total) }}</td>
+        <td class="num" style="background: {{ m.p_home|heat }}">{{ m.p_home|pct }}</td>
+        <td class="num" style="background: {{ m.p_away|heat }}">{{ m.p_away|pct }}</td>
+        <td class="num dim">{{ m.p_ot|pct }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="note">
+  <b>Le calendrier réel n'est pas publié match par match par notre source.</b>
+  La Betclic Élite étant un championnat aller-retour intégral, les affiches
+  restantes se déduisent sans ambiguïté des matchs déjà joués ; en revanche
+  le numéro de journée affiché suit un calendrier canonique, pas celui de la LNB.
+</div>
+
+{% endblock %}

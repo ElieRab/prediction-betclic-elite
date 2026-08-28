@@ -1,0 +1,61 @@
+name: Publier le site
+
+# Le site est regenere chaque matin, a chaque poussee sur la branche
+# principale, et a la demande depuis l'onglet Actions.
+on:
+  schedule:
+    - cron: "0 5 * * *"      # 07 h a Paris (05 h UTC)
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un seul deploiement a la fois ; une execution en attente remplace la
+# precedente plutot que de s'empiler.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installer les dependances
+        run: pip install -r requirements.txt
+
+      - name: Generer le site
+        run: python -m bepred exporter --sortie site --sims 20000
+
+      - name: Verifier que le site est complet
+        run: |
+          test -f site/monaco/index.html
+          test -f site/saint-quentin/index.html
+          test -f site/match/index.html
+          pages=$(find site -name '*.html' | wc -l)
+          echo "$pages pages generees"
+          test "$pages" -gt 500
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deployer:
+    needs: construire
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4

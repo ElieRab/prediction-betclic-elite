@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block titre %}Match – Betclic Élite{% endblock %}
+{% block contenu %}
+
+<h1>Confrontation</h1>
+<p class="sub">Probabilités, écart attendu et loi des scores pour une affiche au choix.</p>
+
+{% if statique %}
+<div class="form-row">
+  <div class="field">
+    <label for="dom">Reçoit</label>
+    <select id="dom" onchange="aller()">
+      {% for t in teams %}<option value="{{ t|slug }}" {{ 'selected' if t == home }}>{{ t }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="field">
+    <label for="ext">Se déplace</label>
+    <select id="ext" onchange="aller()">
+      {% for t in teams %}<option value="{{ t|slug }}" {{ 'selected' if t == away }}>{{ t }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="field">
+    <label for="terrain">Terrain</label>
+    <select id="terrain" onchange="aller()">
+      <option value="" {{ 'selected' if not neutral }}>Salle du club recevant</option>
+      <option value="-neutre" {{ 'selected' if neutral }}>Terrain neutre</option>
+    </select>
+  </div>
+</div>
+<script>
+function aller() {
+  var d = document.getElementById('dom').value,
+      e = document.getElementById('ext').value,
+      t = document.getElementById('terrain').value;
+  if (d === e) return;                 // une équipe ne se reçoit pas elle-même
+  location.href = d + '--' + e + t + '.html';
+}
+</script>
+<p class="sub" style="margin:14px 0 0">
+  La prévision d'une affiche ne dépend pas du seizième club : cette page est
+  commune aux deux scénarios.
+</p>
+{% else %}
+<form method="get" class="form-row">
+  <input type="hidden" name="sc" value="{{ sc }}">
+  <div class="field">
+    <label for="dom">Reçoit</label>
+    <select name="dom" id="dom">
+      {% for t in teams %}<option value="{{ t }}" {{ 'selected' if t == home }}>{{ t }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="field">
+    <label for="ext">Se déplace</label>
+    <select name="ext" id="ext">
+      {% for t in teams %}<option value="{{ t }}" {{ 'selected' if t == away }}>{{ t }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="field">
+    <label for="neutre">Terrain</label>
+    <select name="neutre" id="neutre">
+      <option value="0" {{ 'selected' if not neutral }}>Salle du club recevant</option>
+      <option value="1" {{ 'selected' if neutral }}>Terrain neutre</option>
+    </select>
+  </div>
+  <button class="go">Calculer</button>
+</form>
+
+{% endif %}
+
+<div class="panel pad" style="margin-top:22px">
+  <div class="duel">
+    <div class="side">
+      <div class="name" style="color: {{ home|couleur }}">{{ home }}</div>
+      <div class="elo">Elo {{ '%.0f'|format(p.elo_h) }}</div>
+      <div class="xg">{{ '%.1f'|format(p.lam_h) }}</div>
+    </div>
+    <div class="vs">VS</div>
+    <div class="side">
+      <div class="name" style="color: {{ away|couleur }}">{{ away }}</div>
+      <div class="elo">Elo {{ '%.0f'|format(p.elo_a) }}</div>
+      <div class="xg">{{ '%.1f'|format(p.lam_a) }}</div>
+    </div>
+  </div>
+
+  <div class="bar1x2">
+    <div class="b-h" style="width: {{ 100 * p.p_home }}%">{{ p.p_home|pct }} %</div>
+    <div class="b-a" style="width: {{ 100 * p.p_away }}%">{{ p.p_away|pct }} %</div>
+  </div>
+  <div class="bar-lbl">
+    <span>Victoire {{ home }}</span><span>Victoire {{ away }}</span>
+  </div>
+
+  <div class="mk" style="margin-top:20px">
+    <div><div class="k">Écart attendu</div><div class="v">{{ '%+.1f'|format(p.marge) }}</div></div>
+    <div><div class="k">Total attendu</div><div class="v">{{ '%.0f'|format(p.total) }}</div></div>
+    <div><div class="k">Prolongation</div><div class="v">{{ p.p_ot|pct }} %</div></div>
+    <div><div class="k">Score le plus probable</div><div class="v">{{ best[0] }} – {{ best[1] }}</div></div>
+    <div><div class="k">Historique exploitable</div><div class="v">{{ p.conf|pct0 }} %</div></div>
+  </div>
+</div>
+
+<h2>Loi jointe des scores</h2>
+<p class="sub">
+  Probabilité de chaque score exact en fin de temps réglementaire. La diagonale
+  correspond à une égalité, donc à une prolongation.
+</p>
+<div class="panel">
+  <div class="scroll">
+  <table class="grid-scores">
+    <thead>
+      <tr>
+        <th style="text-align:left">{{ home }} \ {{ away }}</th>
+        {% for j in range(span) %}<th>{{ a0 + j }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in range(span) %}
+      <tr>
+        <td class="club">{{ h0 + i }}</td>
+        {% for j in range(span) %}
+          <td class="cell" style="background: {{ (grid[i][j] / vmax)|heat }}">
+            {{ '%.2f'|format(100 * grid[i][j]) if grid[i][j] > 0.00005 else '' }}
+          </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+{% endblock %}

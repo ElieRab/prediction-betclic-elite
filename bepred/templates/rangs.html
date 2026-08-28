@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block titre %}Rangs – Betclic Élite{% endblock %}
+{% block contenu %}
+
+<h1>Distribution des classements</h1>
+<p class="sub">
+  Probabilité de terminer à chaque place, sur l'ensemble des saisons simulées.
+  Une ligne étalée signale un club dont la saison est encore très ouverte.
+</p>
+
+<div class="panel">
+  <div class="scroll">
+  <table class="grid-rangs">
+    <thead>
+      <tr>
+        <th style="text-align:left">Club</th>
+        {% for r in range(1, n + 1) %}<th>{{ r }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td class="club"><span class="dot" style="background: {{ row.club|couleur }}"></span>{{ row.club }}</td>
+        {% for p in row.rangs %}
+          <td style="background: {{ p|heat }}">{{ p|pct0 }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="legend">
+  <span><i style="background: var(--accent)"></i>Places 1 à 6 : playoffs directs</span>
+  <span><i style="background: var(--warn)"></i>Places 7 à 10 : play-in</span>
+  <span><i style="background: var(--bad)"></i>Places 15 et 16 : relégation</span>
+</div>
+
+{% endblock %}

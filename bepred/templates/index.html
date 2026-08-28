@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block titre %}Projection – Betclic Élite{% endblock %}
+{% block contenu %}
+
+<h1>Classement projeté · {{ saison }}</h1>
+<p class="sub">
+  {{ sc_meta.libelle }} — {{ sc_meta.resume }}
+</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="lbl">Favori au titre</div>
+    <div class="val">{{ favori.club }}</div>
+    <div class="hint">{{ favori.titre|pct }} % de chances</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Plus menacé</div>
+    <div class="val">{{ menace.club }}</div>
+    <div class="hint">{{ menace.rel|pct }} % de relégation</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Matchs restants</div>
+    <div class="val">{{ restants }}</div>
+    <div class="hint">sur 240 de saison régulière</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Simulations</div>
+    <div class="val">{{ '{:,}'.format(n_sims).replace(',', ' ') }}</div>
+    <div class="hint">saisons rejouées de bout en bout</div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">#</th>
+        <th style="text-align:left">Club</th>
+        <th>J</th><th>V auj.</th><th>Diff.</th>
+        <th>V projetées</th><th>Fourchette</th><th>Diff. finale</th>
+        <th>1<sup>er</sup></th><th>Top 6</th><th>Play-in</th>
+        <th>Playoffs</th><th>Finale</th><th>Titre</th><th>Relégation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+      <tr class="zone {% if r.rang <= zones.direct %}z-top{% elif r.rang <= zones.playin %}z-playin{% elif r.rang >= zones.relegation %}z-rel{% endif %}">
+        <td class="num dim" style="text-align:left">{{ r.rang }}</td>
+        <td class="club"><span class="dot" style="background: {{ r.club|couleur }}"></span>{{ r.club|nom }}</td>
+        <td class="num dim">{{ r.joues }}</td>
+        <td class="num">{{ r.v_now }}</td>
+        <td class="num dim">{{ r.diff_now|signe }}</td>
+        <td class="num"><b>{{ '%.1f'|format(r.v) }}</b></td>
+        <td class="num dim">{{ '%.0f'|format(r.v_lo) }}–{{ '%.0f'|format(r.v_hi) }}</td>
+        <td class="num dim">{{ r.diff|signe }}</td>
+        <td class="num" style="background: {{ r.premier|heat }}">{{ r.premier|pct }}</td>
+        <td class="num" style="background: {{ r.top|heat }}">{{ r.top|pct }}</td>
+        <td class="num" style="background: {{ r.playin|heat }}">{{ r.playin|pct }}</td>
+        <td class="num" style="background: {{ r.po|heat }}">{{ r.po|pct }}</td>
+        <td class="num" style="background: {{ r.finale|heat }}">{{ r.finale|pct }}</td>
+        <td class="num" style="background: {{ r.titre|heat }}">{{ r.titre|pct }}</td>
+        <td class="num" style="background: {{ r.rel|cold }}">{{ r.rel|pct }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="legend">
+  <span><i style="background: var(--accent)"></i>1-6 : playoffs directs</span>
+  <span><i style="background: var(--warn)"></i>7-10 : play-in</span>
+  <span><i style="background: var(--bad)"></i>15-16 : relégation en Élite 2</span>
+</div>
+
+<div class="note">
+  <b>Comment lire.</b> « V projetées » est la moyenne des victoires sur
+  {{ '{:,}'.format(n_sims).replace(',', ' ') }} saisons simulées, la fourchette
+  couvrant 8 cas sur 10. « Playoffs » inclut la qualification par le play-in :
+  le 7<sup>e</sup> reçoit le 8<sup>e</sup>, le 9<sup>e</sup> reçoit le 10<sup>e</sup>,
+  puis le perdant du premier match reçoit le vainqueur du second pour la
+  dernière place. Les séries qui suivent sont au meilleur des trois manches,
+  la finale au meilleur des cinq.
+</div>
+
+{% endblock %}

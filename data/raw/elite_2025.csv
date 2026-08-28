@@ -1,0 +1,240 @@
+season,home,away,hp,ap,ot,date
+2025,ASVEL,Strasbourg,89,81,0,2025-09-20
+2025,Chalon,Paris,67,107,0,2025-09-20
+2025,Dijon,Nancy,90,75,0,2025-09-20
+2025,JL Bourg,Limoges,92,71,0,2025-09-20
+2025,Le Portel,Le Mans,72,94,0,2025-09-20
+2025,Monaco,Gravelines-Dunkerque,101,82,0,2025-09-20
+2025,Nanterre,Cholet,66,79,0,2025-09-20
+2025,Saint-Quentin,Boulazac,88,81,0,2025-09-20
+2025,Chalon,Nancy,93,84,0,2025-09-28
+2025,Dijon,Limoges,86,101,0,2025-09-28
+2025,JL Bourg,Le Mans,98,86,0,2025-09-28
+2025,Le Portel,Gravelines-Dunkerque,87,92,0,2025-09-28
+2025,Monaco,Cholet,89,79,0,2025-09-28
+2025,Nanterre,Boulazac,85,78,0,2025-09-28
+2025,Saint-Quentin,ASVEL,76,81,0,2025-09-28
+2025,Strasbourg,Paris,86,92,0,2025-09-28
+2025,ASVEL,Paris,93,98,1,2025-10-06
+2025,Chalon,Limoges,109,56,0,2025-10-06
+2025,Dijon,Le Mans,89,91,0,2025-10-06
+2025,Le Portel,Cholet,84,94,0,2025-10-06
+2025,Monaco,Boulazac,92,85,0,2025-10-06
+2025,Nanterre,Saint-Quentin,80,75,0,2025-10-06
+2025,Strasbourg,Nancy,86,82,0,2025-10-06
+2025,Chalon,Le Mans,71,89,0,2025-10-14
+2025,Dijon,Gravelines-Dunkerque,109,83,0,2025-10-14
+2025,JL Bourg,Cholet,87,93,0,2025-10-14
+2025,Le Portel,Boulazac,68,75,0,2025-10-14
+2025,Monaco,Saint-Quentin,92,84,0,2025-10-14
+2025,Nanterre,ASVEL,73,76,0,2025-10-14
+2025,Paris,Nancy,102,73,0,2025-10-14
+2025,Strasbourg,Limoges,100,82,0,2025-10-14
+2025,ASVEL,Nancy,115,71,0,2025-10-22
+2025,Chalon,Gravelines-Dunkerque,86,81,0,2025-10-22
+2025,Dijon,Cholet,76,64,0,2025-10-22
+2025,JL Bourg,Boulazac,73,70,0,2025-10-22
+2025,Le Portel,Saint-Quentin,72,108,0,2025-10-22
+2025,Monaco,Nanterre,105,98,1,2025-10-22
+2025,Paris,Limoges,115,93,0,2025-10-22
+2025,Strasbourg,Le Mans,103,96,0,2025-10-22
+2025,Chalon,Cholet,87,77,0,2025-10-30
+2025,Dijon,Boulazac,103,85,0,2025-10-30
+2025,JL Bourg,Saint-Quentin,71,89,0,2025-10-30
+2025,Le Portel,Nanterre,59,90,0,2025-10-30
+2025,Monaco,ASVEL,83,87,0,2025-10-30
+2025,Nancy,Limoges,117,85,0,2025-10-30
+2025,Paris,Le Mans,110,92,0,2025-10-30
+2025,Strasbourg,Gravelines-Dunkerque,89,72,0,2025-10-30
+2025,ASVEL,Limoges,90,73,0,2025-11-07
+2025,Chalon,Boulazac,90,74,0,2025-11-07
+2025,Dijon,Saint-Quentin,119,127,1,2025-11-07
+2025,JL Bourg,Nanterre,86,83,0,2025-11-07
+2025,Le Portel,Monaco,63,84,0,2025-11-07
+2025,Nancy,Le Mans,76,78,0,2025-11-07
+2025,Paris,Gravelines-Dunkerque,109,115,1,2025-11-07
+2025,Strasbourg,Cholet,94,89,0,2025-11-07
+2025,Chalon,Saint-Quentin,84,82,0,2025-11-15
+2025,Dijon,Nanterre,88,97,0,2025-11-15
+2025,JL Bourg,Monaco,104,81,0,2025-11-15
+2025,Le Portel,ASVEL,88,98,0,2025-11-15
+2025,Limoges,Le Mans,83,110,0,2025-11-15
+2025,Nancy,Gravelines-Dunkerque,88,93,0,2025-11-15
+2025,Paris,Cholet,107,84,0,2025-11-15
+2025,Strasbourg,Boulazac,86,82,0,2025-11-15
+2025,ASVEL,Le Mans,91,66,0,2025-11-23
+2025,Chalon,Nanterre,78,86,0,2025-11-23
+2025,Dijon,Monaco,86,99,0,2025-11-23
+2025,JL Bourg,Le Portel,109,79,0,2025-11-23
+2025,Limoges,Gravelines-Dunkerque,93,64,0,2025-11-23
+2025,Nancy,Cholet,91,87,0,2025-11-23
+2025,Paris,Boulazac,87,103,0,2025-11-23
+2025,Strasbourg,Saint-Quentin,84,72,0,2025-11-23
+2025,Chalon,Monaco,78,92,0,2025-12-01
+2025,Dijon,Le Portel,102,82,0,2025-12-01
+2025,JL Bourg,ASVEL,81,79,0,2025-12-01
+2025,Le Mans,Gravelines-Dunkerque,87,66,0,2025-12-01
+2025,Limoges,Cholet,70,78,0,2025-12-01
+2025,Nancy,Boulazac,83,72,0,2025-12-01
+2025,Paris,Saint-Quentin,99,69,0,2025-12-01
+2025,Strasbourg,Nanterre,84,74,0,2025-12-01
+2025,ASVEL,Gravelines-Dunkerque,88,79,0,2025-12-09
+2025,Chalon,Le Portel,93,58,0,2025-12-09
+2025,Dijon,JL Bourg,101,83,0,2025-12-09
+2025,Le Mans,Cholet,89,94,0,2025-12-09
+2025,Limoges,Boulazac,80,72,0,2025-12-09
+2025,Nancy,Saint-Quentin,84,71,0,2025-12-09
+2025,Paris,Nanterre,96,92,0,2025-12-09
+2025,Strasbourg,Monaco,114,118,1,2025-12-09
+2025,Chalon,JL Bourg,100,84,0,2025-12-17
+2025,Dijon,ASVEL,99,90,0,2025-12-17
+2025,Gravelines-Dunkerque,Cholet,97,98,1,2025-12-17
+2025,Le Mans,Boulazac,108,94,0,2025-12-17
+2025,Limoges,Saint-Quentin,80,62,0,2025-12-17
+2025,Nancy,Nanterre,84,91,0,2025-12-17
+2025,Paris,Monaco,94,99,0,2025-12-17
+2025,Strasbourg,Le Portel,80,75,0,2025-12-17
+2025,ASVEL,Cholet,85,87,0,2025-12-25
+2025,Chalon,Dijon,90,74,0,2025-12-25
+2025,Gravelines-Dunkerque,Boulazac,91,92,0,2025-12-25
+2025,Le Mans,Saint-Quentin,90,74,0,2025-12-25
+2025,Limoges,Nanterre,90,87,0,2025-12-25
+2025,Nancy,Monaco,79,93,0,2025-12-25
+2025,Paris,Le Portel,110,80,0,2025-12-25
+2025,Strasbourg,JL Bourg,87,83,0,2025-12-25
+2025,Chalon,ASVEL,87,89,0,2026-01-02
+2025,Cholet,Boulazac,92,81,0,2026-01-02
+2025,Gravelines-Dunkerque,Saint-Quentin,91,75,0,2026-01-02
+2025,Le Mans,Nanterre,79,71,0,2026-01-02
+2025,Limoges,Monaco,77,94,0,2026-01-02
+2025,Nancy,Le Portel,95,50,0,2026-01-02
+2025,Paris,JL Bourg,85,95,0,2026-01-02
+2025,Strasbourg,Dijon,96,98,1,2026-01-02
+2025,ASVEL,Boulazac,94,77,0,2026-01-10
+2025,Cholet,Saint-Quentin,93,80,0,2026-01-10
+2025,Gravelines-Dunkerque,Nanterre,80,85,1,2026-01-10
+2025,Le Mans,Monaco,84,93,0,2026-01-10
+2025,Limoges,Le Portel,74,79,0,2026-01-10
+2025,Nancy,JL Bourg,80,88,0,2026-01-10
+2025,Paris,Dijon,97,92,0,2026-01-10
+2025,Strasbourg,Chalon,90,91,1,2026-01-10
+2025,Boulazac,Saint-Quentin,94,76,0,2026-01-18
+2025,Cholet,Nanterre,76,78,0,2026-01-18
+2025,Gravelines-Dunkerque,Monaco,77,89,0,2026-01-18
+2025,Le Mans,Le Portel,107,68,0,2026-01-18
+2025,Limoges,JL Bourg,96,84,0,2026-01-18
+2025,Nancy,Dijon,96,94,0,2026-01-18
+2025,Paris,Chalon,103,105,1,2026-01-18
+2025,Strasbourg,ASVEL,81,96,0,2026-01-18
+2025,ASVEL,Saint-Quentin,86,70,0,2026-01-26
+2025,Boulazac,Nanterre,84,95,0,2026-01-26
+2025,Cholet,Monaco,72,95,0,2026-01-26
+2025,Gravelines-Dunkerque,Le Portel,100,78,0,2026-01-26
+2025,Le Mans,JL Bourg,84,82,0,2026-01-26
+2025,Limoges,Dijon,80,76,0,2026-01-26
+2025,Nancy,Chalon,102,80,0,2026-01-26
+2025,Paris,Strasbourg,96,67,0,2026-01-26
+2025,Boulazac,Monaco,92,74,0,2026-02-03
+2025,Cholet,Le Portel,105,58,0,2026-02-03
+2025,Gravelines-Dunkerque,JL Bourg,75,84,0,2026-02-03
+2025,Le Mans,Dijon,92,86,0,2026-02-03
+2025,Limoges,Chalon,95,83,0,2026-02-03
+2025,Nancy,Strasbourg,82,86,0,2026-02-03
+2025,Paris,ASVEL,87,76,0,2026-02-03
+2025,Saint-Quentin,Nanterre,65,89,0,2026-02-03
+2025,ASVEL,Nanterre,64,77,0,2026-02-11
+2025,Boulazac,Le Portel,94,64,0,2026-02-11
+2025,Cholet,JL Bourg,102,96,0,2026-02-11
+2025,Gravelines-Dunkerque,Dijon,93,85,0,2026-02-11
+2025,Le Mans,Chalon,87,93,0,2026-02-11
+2025,Limoges,Strasbourg,82,86,0,2026-02-11
+2025,Nancy,Paris,97,90,0,2026-02-11
+2025,Saint-Quentin,Monaco,73,98,0,2026-02-11
+2025,Boulazac,JL Bourg,68,82,0,2026-02-19
+2025,Cholet,Dijon,111,74,0,2026-02-19
+2025,Gravelines-Dunkerque,Chalon,86,78,0,2026-02-19
+2025,Le Mans,Strasbourg,72,84,0,2026-02-19
+2025,Limoges,Paris,80,86,0,2026-02-19
+2025,Nancy,ASVEL,82,88,0,2026-02-19
+2025,Nanterre,Monaco,76,81,0,2026-02-19
+2025,Saint-Quentin,Le Portel,97,81,0,2026-02-19
+2025,ASVEL,Monaco,98,102,0,2026-02-27
+2025,Boulazac,Dijon,79,78,0,2026-02-27
+2025,Cholet,Chalon,98,77,0,2026-02-27
+2025,Gravelines-Dunkerque,Strasbourg,81,87,0,2026-02-27
+2025,Le Mans,Paris,95,89,0,2026-02-27
+2025,Limoges,Nancy,97,79,0,2026-02-27
+2025,Nanterre,Le Portel,81,74,0,2026-02-27
+2025,Saint-Quentin,JL Bourg,75,88,0,2026-02-27
+2025,Boulazac,Chalon,94,90,0,2026-03-07
+2025,Cholet,Strasbourg,92,74,0,2026-03-07
+2025,Gravelines-Dunkerque,Paris,66,109,0,2026-03-07
+2025,Le Mans,Nancy,102,74,0,2026-03-07
+2025,Limoges,ASVEL,65,81,0,2026-03-07
+2025,Monaco,Le Portel,113,86,0,2026-03-07
+2025,Nanterre,JL Bourg,101,93,0,2026-03-07
+2025,Saint-Quentin,Dijon,77,83,0,2026-03-07
+2025,ASVEL,Le Portel,104,58,0,2026-03-15
+2025,Boulazac,Strasbourg,95,76,0,2026-03-15
+2025,Cholet,Paris,93,99,0,2026-03-15
+2025,Gravelines-Dunkerque,Nancy,107,79,0,2026-03-15
+2025,Le Mans,Limoges,101,84,0,2026-03-15
+2025,Monaco,JL Bourg,89,91,0,2026-03-15
+2025,Nanterre,Dijon,87,69,0,2026-03-15
+2025,Saint-Quentin,Chalon,65,86,0,2026-03-15
+2025,Boulazac,Paris,73,94,0,2026-03-23
+2025,Cholet,Nancy,94,91,1,2026-03-23
+2025,Gravelines-Dunkerque,Limoges,79,84,0,2026-03-23
+2025,Le Mans,ASVEL,88,91,0,2026-03-23
+2025,Le Portel,JL Bourg,63,92,0,2026-03-23
+2025,Monaco,Dijon,108,95,0,2026-03-23
+2025,Nanterre,Chalon,88,82,0,2026-03-23
+2025,Saint-Quentin,Strasbourg,109,87,0,2026-03-23
+2025,ASVEL,JL Bourg,91,77,0,2026-03-31
+2025,Boulazac,Nancy,65,87,0,2026-03-31
+2025,Cholet,Limoges,91,88,0,2026-03-31
+2025,Gravelines-Dunkerque,Le Mans,83,96,0,2026-03-31
+2025,Le Portel,Dijon,80,126,0,2026-03-31
+2025,Monaco,Chalon,99,104,0,2026-03-31
+2025,Nanterre,Strasbourg,102,88,0,2026-03-31
+2025,Saint-Quentin,Paris,90,103,0,2026-03-31
+2025,Boulazac,Limoges,92,80,0,2026-04-08
+2025,Cholet,Le Mans,80,84,0,2026-04-08
+2025,Gravelines-Dunkerque,ASVEL,62,83,0,2026-04-08
+2025,JL Bourg,Dijon,101,81,0,2026-04-08
+2025,Le Portel,Chalon,78,87,0,2026-04-08
+2025,Monaco,Strasbourg,88,74,0,2026-04-08
+2025,Nanterre,Paris,99,83,0,2026-04-08
+2025,Saint-Quentin,Nancy,72,84,0,2026-04-08
+2025,ASVEL,Dijon,85,80,0,2026-04-16
+2025,Boulazac,Le Mans,86,97,0,2026-04-16
+2025,Cholet,Gravelines-Dunkerque,91,85,0,2026-04-16
+2025,JL Bourg,Chalon,82,80,0,2026-04-16
+2025,Le Portel,Strasbourg,65,102,0,2026-04-16
+2025,Monaco,Paris,95,123,0,2026-04-16
+2025,Nanterre,Nancy,86,72,0,2026-04-16
+2025,Saint-Quentin,Limoges,77,86,0,2026-04-16
+2025,Boulazac,Gravelines-Dunkerque,97,67,0,2026-04-24
+2025,Cholet,ASVEL,93,85,0,2026-04-24
+2025,Dijon,Chalon,94,91,0,2026-04-24
+2025,JL Bourg,Strasbourg,77,80,0,2026-04-24
+2025,Le Portel,Paris,57,120,0,2026-04-24
+2025,Monaco,Nancy,86,94,0,2026-04-24
+2025,Nanterre,Limoges,91,89,0,2026-04-24
+2025,Saint-Quentin,Le Mans,85,88,0,2026-04-24
+2025,ASVEL,Chalon,85,86,0,2026-05-02
+2025,Boulazac,Cholet,68,77,0,2026-05-02
+2025,Dijon,Strasbourg,95,89,0,2026-05-02
+2025,JL Bourg,Paris,75,91,0,2026-05-02
+2025,Le Portel,Nancy,85,97,0,2026-05-02
+2025,Monaco,Limoges,99,88,0,2026-05-02
+2025,Nanterre,Le Mans,98,88,0,2026-05-02
+2025,Saint-Quentin,Gravelines-Dunkerque,86,74,0,2026-05-02
+2025,Boulazac,ASVEL,72,67,0,2026-05-10
+2025,Chalon,Strasbourg,69,75,0,2026-05-10
+2025,Dijon,Paris,76,92,0,2026-05-10
+2025,JL Bourg,Nancy,89,77,0,2026-05-10
+2025,Le Portel,Limoges,83,105,0,2026-05-10
+2025,Monaco,Le Mans,99,85,0,2026-05-10
+2025,Nanterre,Gravelines-Dunkerque,101,79,0,2026-05-10
+2025,Saint-Quentin,Cholet,77,68,0,2026-05-10

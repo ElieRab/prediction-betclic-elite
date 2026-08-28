@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titre %}Betclic Élite – prédiction{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🏀</text></svg>">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>Betclic Élite · prédiction</b>
+      <span>Elo + Poisson · {{ saison }}</span>
+    </div>
+    <nav class="main">
+      {% for libelle, route in nav %}
+        <a href="{{ url_for(route, sc=sc) }}" class="{{ 'on' if request.endpoint == route }}">{{ libelle }}</a>
+      {% endfor %}
+    </nav>
+    {% if statique %}
+      <span class="refresh static" title="Le site est régénéré automatiquement chaque nuit">
+        ↻ {{ construit.strftime('%d/%m à %H:%M') }}</span>
+    {% else %}
+    <form method="post" action="{{ url_for('actualiser') }}">
+      <input type="hidden" name="retour" value="{{ request.full_path }}">
+      <button class="refresh" title="Retélécharge les résultats et réajuste le modèle">↻ Actualiser</button>
+    </form>
+    {% endif %}
+  </div>
+  {% if not (statique and request.endpoint == 'match') %}
+  <div class="top-inner" style="padding-top:0">
+    <div class="scenario">
+      <span class="lbl">16<sup>e</sup> club</span>
+      {% for key, meta in scenarios.items() %}
+        <a href="{{ url_for(request.endpoint, sc=key, **request.view_args) }}"
+           class="{{ 'on' if key == sc }}" title="{{ meta.resume }}">{{ meta.libelle }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</header>
+
+<div class="wrap">
+  {% block contenu %}{% endblock %}
+
+  <footer>
+    Résultats : grilles de scores de <a href="https://en.wikipedia.org/wiki/2025%E2%80%9326_LNB_%C3%89lite_season" target="_blank" rel="noopener">Wikipedia (LNB Élite)</a>
+    · {{ joues }} match{{ 's' if joues > 1 }} joué{{ 's' if joues > 1 }} en {{ saison }}
+    {% if maj %}· dernier résultat intégré le {{ maj.strftime('%d/%m/%Y') }}{% endif %}
+    · modèle ajusté le {{ construit.strftime('%d/%m/%Y à %H:%M') }}<br>
+    Les probabilités sont des estimations statistiques, pas des certitudes : un modèle bien calibré
+    se trompe sur 25 % des matchs qu'il annonce à 75 %.
+  </footer>
+</div>
+</body>
+</html>

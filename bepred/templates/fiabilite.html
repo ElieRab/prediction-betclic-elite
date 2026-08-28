@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block titre %}Fiabilité – Betclic Élite{% endblock %}
+{% block contenu %}
+
+<h1>Le modèle est-il fiable ?</h1>
+<p class="sub">
+  Validation glissante : les matchs sont parcourus dans l'ordre, le modèle est
+  reconstruit sur le seul passé, puis noté sur les rencontres suivantes. Aucun
+  résultat évalué ici n'a servi à l'ajustement.
+</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="lbl">Score de Brier</div>
+    <div class="val">{{ '%.3f'|format(m.brier) }}</div>
+    <div class="hint">contre {{ '%.3f'|format(m.brier_domicile) }} en pariant toujours à domicile · plus bas = mieux</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Vainqueur trouvé</div>
+    <div class="val">{{ '%.1f'|format(100 * m.justesse) }} %</div>
+    <div class="hint">contre {{ '%.1f'|format(100 * m.justesse_domicile) }} % en misant sur le club qui reçoit</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Erreur sur l'écart</div>
+    <div class="val">{{ '%.1f'|format(m.mae_marge) }}</div>
+    <div class="hint">points d'erreur moyenne · biais {{ '%+.1f'|format(m.biais_marge) }}</div>
+  </div>
+  <div class="card">
+    <div class="lbl">Erreur sur le total</div>
+    <div class="val">{{ '%.1f'|format(m.mae_total) }}</div>
+    <div class="hint">points d'erreur moyenne · biais {{ '%+.1f'|format(m.biais_total) }}</div>
+  </div>
+</div>
+
+<h2>Courbe de fiabilité</h2>
+<p class="sub">
+  Quand le modèle annonce 70 %, l'équipe gagne-t-elle vraiment 7 fois sur 10 ?
+  Les deux colonnes doivent se ressembler.
+</p>
+
+<div class="panel">
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">Probabilité annoncée</th>
+        <th>Matchs</th><th>Annoncé</th><th>Observé</th><th>Écart</th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rel %}
+      <tr>
+        <td class="club">{{ r.tranche }}</td>
+        <td class="num dim">{{ r.n }}</td>
+        <td class="num">{{ '%.1f'|format(100 * r.prevu) }} %</td>
+        <td class="num">{{ '%.1f'|format(100 * r.observe) }} %</td>
+        <td class="num {{ 'up' if r.observe >= r.prevu else 'down' }}">
+          {{ '%+.1f'|format(100 * (r.observe - r.prevu)) }}</td>
+        <td style="width:220px">
+          <span class="meter"><i style="width: {{ 100 * r.observe }}%"></i></span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<h2>Amplitude des écarts</h2>
+<div class="mk" style="margin-top:12px">
+  <div><div class="k">Écart-type des résidus</div><div class="v">{{ '%.1f'|format(marge.ecart_type_residu) }}</div></div>
+  <div><div class="k">Écart-type des écarts observés</div><div class="v">{{ '%.1f'|format(marge.ecart_type_marge) }}</div></div>
+  <div><div class="k">Corrélation prévu / réalisé</div><div class="v">{{ '%.2f'|format(marge.correlation) }}</div></div>
+  <div><div class="k">Matchs évalués</div><div class="v">{{ m.n }}</div></div>
+</div>
+
+<div class="note">
+  <b>Les limites, sans détour.</b> Le modèle ignore les blessures, les
+  changements d'entraîneur, le recrutement de l'intersaison et la fatigue des
+  clubs engagés en coupe d'Europe. Le total de points reste légèrement
+  sous-estimé ({{ '%+.1f'|format(m.biais_total) }} point en moyenne) : la
+  Betclic Élite marque de plus en plus — 161 points par match en 2023-24, 173
+  en 2025-26 — et un modèle calé sur le passé court toujours après cette
+  hausse. Enfin, l'ordre des matchs au sein d'une saison est reconstruit et non
+  observé, ce qui lisse légèrement les dynamiques de forme.
+</div>
+
+{% endblock %}
