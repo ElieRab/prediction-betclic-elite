@@ -29,7 +29,7 @@
     </form>
     {% endif %}
   </div>
-  {% if not (statique and request.endpoint == 'match') %}
+  {% if scenarios|length > 1 and not (statique and request.endpoint == 'match') %}
   <div class="top-inner" style="padding-top:0">
     <div class="scenario">
       <span class="lbl">16<sup>e</sup> club</span>

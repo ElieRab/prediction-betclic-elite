@@ -15,13 +15,13 @@ from flask import Flask, redirect, render_template, request, url_for
 from . import scenarios as sc
 from .backtest import margin_check, metrics, reliability, walk_forward
 from .config import Config, current_season, season_label
-from .data import (SCENARIOS, display_name, load_matches, refresh,
-                   resolve_team, slug, team_color)
+from .data import (LEGACY_SCENARIOS, SCENARIOS, display_name, load_matches,
+                   refresh, resolve_team, slug, team_color)
 from .model import BEModel
 from .season import fixture_predictions
 
 DEFAULT_SIMS = 10000
-DEFAULT_SCENARIO = "monaco"
+DEFAULT_SCENARIO = "saint-quentin"
 
 _lock = threading.Lock()
 _state: dict = {}
@@ -61,6 +61,7 @@ def get_backtest() -> dict:
 
 def pick_scenario(default: str = DEFAULT_SCENARIO) -> str:
     key = request.args.get("sc", default)
+    key = LEGACY_SCENARIOS.get(key, key)        # liens publies avant la decision
     return key if key in SCENARIOS else default
 
 
@@ -130,7 +131,7 @@ def create_app() -> Flask:
             "scenarios": SCENARIOS,
             "sc": key,
             "sc_meta": SCENARIOS[key],
-            "nav": [("Projection", "index"), ("Scénarios", "scenarios_page"),
+            "nav": [("Projection", "index"), ("Composition", "scenarios_page"),
                     ("Rangs", "rangs"), ("Calendrier", "calendrier"),
                     ("Match", "match"), ("Forces", "forces"),
                     ("Fiabilité", "fiabilite")],
@@ -160,11 +161,11 @@ def create_app() -> Flask:
     @app.route("/scenarios")
     def scenarios_page():
         st = get_state()
-        cmp_ = sc.compare(st["runs"])
-        heads = {k: sc.headline(st["runs"], k) for k in SCENARIOS}
-        return render_template("scenarios.html", cmp=cmp_.to_dict("records"),
-                               heads=heads, runs=st["runs"],
-                               tables={k: _rows(v) for k, v in st["runs"].items()})
+        proj = st["runs"][pick_scenario()]
+        rows = _rows(proj)
+        elo = {t: st["model"].elo.rating(t) for t in proj["teams"]}
+        return render_template("scenarios.html", rows=rows, elo=elo,
+                               cmp=sc.compare(st["runs"]).to_dict("records"))
 
     # ------------------------------------------------------------ calendrier
     @app.route("/calendrier")
@@ -186,7 +187,7 @@ def create_app() -> Flask:
         st = get_state()
         # La prevision d'une affiche ne depend pas de la composition du
         # championnat : on propose les clubs des deux scenarios.
-        teams = sc.all_scenario_teams()
+        teams = sc.all_scenario_teams(st["matches"], st["season"])
         home = resolve_team(request.args.get("dom", ""), teams) or teams[0]
         away = resolve_team(request.args.get("ext", ""), teams)
         if away is None or away == home:

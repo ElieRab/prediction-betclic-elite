@@ -19,7 +19,7 @@ from pathlib import Path
 from flask import request
 
 from . import scenarios as scn
-from .data import SCENARIOS, slug
+from .data import LEGACY_SCENARIOS, SCENARIOS, slug
 from .web import DEFAULT_SCENARIO, create_app, get_state
 
 #: Page d'accueil du site : le scenario affiche par defaut.
@@ -136,6 +136,21 @@ def build(out: Path, n_sims: int = 10000, actualiser: bool = True,
             render(f"/match?dom={home}&ext={away}&neutre=1", base + "-neutre.html")
     if verbose:
         print(f"  affiches : {len(union) * (len(union) - 1) * 2} pages")
+
+    # Les adresses publiees avant que la composition ne soit connue doivent
+    # continuer de fonctionner : chaque page de l'ancien scenario redirige
+    # vers son equivalent actuel.
+    for ancien, actuel in LEGACY_SCENARIOS.items():
+        if actuel not in SCENARIOS:
+            continue
+        for page in sorted((out / actuel).rglob("*.html")):
+            relatif = page.relative_to(out / actuel).as_posix()
+            lien = posixpath.relpath(f"{actuel}/{relatif}",
+                                     posixpath.dirname(f"{ancien}/{relatif}"))
+            cible = out / ancien / relatif
+            cible.parent.mkdir(parents=True, exist_ok=True)
+            cible.write_text(REDIRECTION.format(cible=lien), encoding="utf-8")
+            written += 1
 
     (out / "index.html").write_text(
         REDIRECTION.format(cible=f"{HOME}/index.html"), encoding="utf-8")

@@ -1,307 +1,307 @@
-season,home,away,hp,ap,ot,date
-2023,ASVEL,Strasbourg,91,72,0,2023-09-20
-2023,Chalon,Roanne,105,86,0,2023-09-20
-2023,Dijon,Nanterre,82,84,0,2023-09-20
-2023,JL Bourg,Monaco,74,70,0,2023-09-20
-2023,Le Portel,Limoges,76,66,0,2023-09-20
-2023,Metropolitans 92,Le Mans,88,100,0,2023-09-20
-2023,Nancy,Gravelines-Dunkerque,69,59,0,2023-09-20
-2023,Paris,Cholet,92,90,1,2023-09-20
-2023,Saint-Quentin,Blois,75,64,0,2023-09-20
-2023,Chalon,Nanterre,89,97,0,2023-09-27
-2023,Dijon,Monaco,72,80,0,2023-09-27
-2023,JL Bourg,Limoges,77,67,0,2023-09-27
-2023,Le Portel,Le Mans,85,76,0,2023-09-27
-2023,Metropolitans 92,Gravelines-Dunkerque,72,74,0,2023-09-27
-2023,Nancy,Cholet,77,85,0,2023-09-27
-2023,Paris,Blois,72,65,0,2023-09-27
-2023,Saint-Quentin,ASVEL,91,71,0,2023-09-27
-2023,Strasbourg,Roanne,97,82,0,2023-09-27
-2023,ASVEL,Roanne,93,88,0,2023-10-04
-2023,Chalon,Monaco,68,104,0,2023-10-04
-2023,Dijon,Limoges,90,60,0,2023-10-04
-2023,JL Bourg,Le Mans,86,67,0,2023-10-04
-2023,Le Portel,Gravelines-Dunkerque,91,82,0,2023-10-04
-2023,Metropolitans 92,Cholet,78,92,0,2023-10-04
-2023,Nancy,Blois,93,96,0,2023-10-04
-2023,Paris,Saint-Quentin,87,65,0,2023-10-04
-2023,Strasbourg,Nanterre,71,57,0,2023-10-04
-2023,Chalon,Limoges,80,78,0,2023-10-11
-2023,Dijon,Le Mans,87,77,0,2023-10-11
-2023,JL Bourg,Gravelines-Dunkerque,90,82,0,2023-10-11
-2023,Le Portel,Cholet,87,84,1,2023-10-11
-2023,Metropolitans 92,Blois,81,87,0,2023-10-11
-2023,Nancy,Saint-Quentin,69,77,0,2023-10-11
-2023,Paris,ASVEL,92,86,0,2023-10-11
-2023,Roanne,Nanterre,72,86,0,2023-10-11
-2023,Strasbourg,Monaco,67,83,0,2023-10-11
-2023,ASVEL,Nanterre,100,76,0,2023-10-18
-2023,Chalon,Le Mans,73,68,0,2023-10-18
-2023,Dijon,Gravelines-Dunkerque,90,69,0,2023-10-18
-2023,JL Bourg,Cholet,78,80,0,2023-10-18
-2023,Le Portel,Blois,94,89,0,2023-10-18
-2023,Metropolitans 92,Saint-Quentin,69,73,0,2023-10-18
-2023,Nancy,Paris,81,78,0,2023-10-18
-2023,Roanne,Monaco,92,99,0,2023-10-18
-2023,Strasbourg,Limoges,80,87,0,2023-10-18
-2023,Chalon,Gravelines-Dunkerque,79,63,0,2023-10-25
-2023,Dijon,Cholet,60,62,0,2023-10-25
-2023,JL Bourg,Blois,81,66,0,2023-10-25
-2023,Le Portel,Saint-Quentin,85,76,0,2023-10-25
-2023,Metropolitans 92,Paris,77,93,0,2023-10-25
-2023,Nancy,ASVEL,58,83,0,2023-10-25
-2023,Nanterre,Monaco,80,86,0,2023-10-25
-2023,Roanne,Limoges,79,76,0,2023-10-25
-2023,Strasbourg,Le Mans,71,80,0,2023-10-25
-2023,ASVEL,Monaco,79,87,0,2023-11-01
-2023,Chalon,Cholet,79,81,0,2023-11-01
-2023,Dijon,Blois,81,63,0,2023-11-01
-2023,JL Bourg,Saint-Quentin,86,71,0,2023-11-01
-2023,Le Portel,Paris,66,80,0,2023-11-01
-2023,Metropolitans 92,Nancy,80,89,0,2023-11-01
-2023,Nanterre,Limoges,113,77,0,2023-11-01
-2023,Roanne,Le Mans,70,71,0,2023-11-01
-2023,Strasbourg,Gravelines-Dunkerque,68,65,0,2023-11-01
-2023,Chalon,Blois,93,75,0,2023-11-08
-2023,Dijon,Saint-Quentin,77,69,0,2023-11-08
-2023,JL Bourg,Paris,83,81,0,2023-11-08
-2023,Le Portel,Nancy,88,93,0,2023-11-08
-2023,Metropolitans 92,ASVEL,79,103,0,2023-11-08
-2023,Monaco,Limoges,94,56,0,2023-11-08
-2023,Nanterre,Le Mans,93,81,0,2023-11-08
-2023,Roanne,Gravelines-Dunkerque,69,78,0,2023-11-08
-2023,Strasbourg,Cholet,79,76,0,2023-11-08
-2023,ASVEL,Limoges,77,66,0,2023-11-15
-2023,Chalon,Saint-Quentin,97,90,1,2023-11-15
-2023,Dijon,Paris,72,80,0,2023-11-15
-2023,JL Bourg,Nancy,103,78,0,2023-11-15
-2023,Le Portel,Metropolitans 92,104,79,0,2023-11-15
-2023,Monaco,Le Mans,78,74,0,2023-11-15
-2023,Nanterre,Gravelines-Dunkerque,78,75,0,2023-11-15
-2023,Roanne,Cholet,82,69,0,2023-11-15
-2023,Strasbourg,Blois,80,88,0,2023-11-15
-2023,Chalon,Paris,73,84,0,2023-11-23
-2023,Dijon,Nancy,88,73,0,2023-11-23
-2023,JL Bourg,Metropolitans 92,94,73,0,2023-11-23
-2023,Le Portel,ASVEL,66,101,0,2023-11-23
-2023,Limoges,Le Mans,79,78,0,2023-11-23
-2023,Monaco,Gravelines-Dunkerque,91,76,0,2023-11-23
-2023,Nanterre,Cholet,91,87,0,2023-11-23
-2023,Roanne,Blois,83,81,0,2023-11-23
-2023,Strasbourg,Saint-Quentin,78,66,0,2023-11-23
-2023,ASVEL,Le Mans,89,75,0,2023-11-30
-2023,Chalon,Nancy,70,74,0,2023-11-30
-2023,Dijon,Metropolitans 92,94,54,0,2023-11-30
-2023,JL Bourg,Le Portel,106,74,0,2023-11-30
-2023,Limoges,Gravelines-Dunkerque,88,63,0,2023-11-30
-2023,Monaco,Cholet,66,79,0,2023-11-30
-2023,Nanterre,Blois,103,106,0,2023-11-30
-2023,Roanne,Saint-Quentin,90,96,0,2023-11-30
-2023,Strasbourg,Paris,89,86,0,2023-11-30
-2023,Chalon,Metropolitans 92,86,92,0,2023-12-07
-2023,Dijon,Le Portel,92,80,0,2023-12-07
-2023,JL Bourg,ASVEL,74,80,0,2023-12-07
-2023,Le Mans,Gravelines-Dunkerque,78,68,0,2023-12-07
-2023,Limoges,Cholet,81,90,0,2023-12-07
-2023,Monaco,Blois,99,81,0,2023-12-07
-2023,Nanterre,Saint-Quentin,80,75,0,2023-12-07
-2023,Roanne,Paris,83,76,0,2023-12-07
-2023,Strasbourg,Nancy,88,78,0,2023-12-07
-2023,ASVEL,Gravelines-Dunkerque,86,83,1,2023-12-14
-2023,Chalon,Le Portel,94,65,0,2023-12-14
-2023,Dijon,JL Bourg,66,84,0,2023-12-14
-2023,Le Mans,Cholet,85,88,1,2023-12-14
-2023,Limoges,Blois,86,78,0,2023-12-14
-2023,Monaco,Saint-Quentin,77,75,0,2023-12-14
-2023,Nanterre,Paris,67,98,0,2023-12-14
-2023,Roanne,Nancy,107,80,0,2023-12-14
-2023,Strasbourg,Metropolitans 92,74,61,0,2023-12-14
-2023,Chalon,JL Bourg,62,89,0,2023-12-21
-2023,Dijon,ASVEL,71,73,0,2023-12-21
-2023,Gravelines-Dunkerque,Cholet,66,59,0,2023-12-21
-2023,Le Mans,Blois,110,96,0,2023-12-21
-2023,Limoges,Saint-Quentin,83,80,0,2023-12-21
-2023,Monaco,Paris,84,62,0,2023-12-21
-2023,Nanterre,Nancy,89,88,0,2023-12-21
-2023,Roanne,Metropolitans 92,105,93,0,2023-12-21
-2023,Strasbourg,Le Portel,90,75,0,2023-12-21
-2023,ASVEL,Cholet,100,95,0,2023-12-28
-2023,Chalon,Dijon,76,84,0,2023-12-28
-2023,Gravelines-Dunkerque,Blois,82,73,0,2023-12-28
-2023,Le Mans,Saint-Quentin,76,77,0,2023-12-28
-2023,Limoges,Paris,65,83,0,2023-12-28
-2023,Monaco,Nancy,86,100,0,2023-12-28
-2023,Nanterre,Metropolitans 92,94,86,0,2023-12-28
-2023,Roanne,Le Portel,84,83,0,2023-12-28
-2023,Strasbourg,JL Bourg,65,83,0,2023-12-28
-2023,Chalon,ASVEL,88,87,1,2024-01-04
-2023,Cholet,Blois,71,80,0,2024-01-04
-2023,Gravelines-Dunkerque,Saint-Quentin,69,78,0,2024-01-04
-2023,Le Mans,Paris,55,88,0,2024-01-04
-2023,Limoges,Nancy,102,99,0,2024-01-04
-2023,Monaco,Metropolitans 92,84,72,0,2024-01-04
-2023,Nanterre,Le Portel,109,88,0,2024-01-04
-2023,Roanne,JL Bourg,87,111,0,2024-01-04
-2023,Strasbourg,Dijon,64,81,0,2024-01-04
-2023,ASVEL,Blois,85,77,0,2024-01-11
-2023,Cholet,Saint-Quentin,73,69,0,2024-01-11
-2023,Gravelines-Dunkerque,Paris,66,77,0,2024-01-11
-2023,Le Mans,Nancy,98,66,0,2024-01-11
-2023,Limoges,Metropolitans 92,98,88,0,2024-01-11
-2023,Monaco,Le Portel,101,67,0,2024-01-11
-2023,Nanterre,JL Bourg,105,98,0,2024-01-11
-2023,Roanne,Dijon,92,105,0,2024-01-11
-2023,Strasbourg,Chalon,82,86,0,2024-01-11
-2023,Blois,Saint-Quentin,60,75,0,2024-01-18
-2023,Cholet,Paris,70,77,0,2024-01-18
-2023,Gravelines-Dunkerque,Nancy,83,76,0,2024-01-18
-2023,Le Mans,Metropolitans 92,110,96,0,2024-01-18
-2023,Limoges,Le Portel,73,76,0,2024-01-18
-2023,Monaco,JL Bourg,78,67,0,2024-01-18
-2023,Nanterre,Dijon,67,87,0,2024-01-18
-2023,Roanne,Chalon,82,93,0,2024-01-18
-2023,Strasbourg,ASVEL,82,80,0,2024-01-18
-2023,ASVEL,Saint-Quentin,79,77,0,2024-01-25
-2023,Blois,Paris,88,92,0,2024-01-25
-2023,Cholet,Nancy,67,76,0,2024-01-25
-2023,Gravelines-Dunkerque,Metropolitans 92,106,76,0,2024-01-25
-2023,Le Mans,Le Portel,73,67,0,2024-01-25
-2023,Limoges,JL Bourg,86,90,0,2024-01-25
-2023,Monaco,Dijon,88,74,0,2024-01-25
-2023,Nanterre,Chalon,83,72,0,2024-01-25
-2023,Roanne,Strasbourg,82,98,0,2024-01-25
-2023,Blois,Nancy,99,98,1,2024-02-01
-2023,Cholet,Metropolitans 92,112,83,0,2024-02-01
-2023,Gravelines-Dunkerque,Le Portel,77,83,1,2024-02-01
-2023,Le Mans,JL Bourg,64,80,0,2024-02-01
-2023,Limoges,Dijon,93,77,0,2024-02-01
-2023,Monaco,Chalon,82,69,0,2024-02-01
-2023,Nanterre,Strasbourg,76,68,0,2024-02-01
-2023,Roanne,ASVEL,66,69,0,2024-02-01
-2023,Saint-Quentin,Paris,65,81,0,2024-02-01
-2023,ASVEL,Paris,66,86,0,2024-02-08
-2023,Blois,Metropolitans 92,95,84,0,2024-02-08
-2023,Cholet,Le Portel,89,82,0,2024-02-08
-2023,Gravelines-Dunkerque,JL Bourg,64,75,0,2024-02-08
-2023,Le Mans,Dijon,76,67,0,2024-02-08
-2023,Limoges,Chalon,107,88,0,2024-02-08
-2023,Monaco,Strasbourg,92,78,0,2024-02-08
-2023,Nanterre,Roanne,83,77,0,2024-02-08
-2023,Saint-Quentin,Nancy,71,78,0,2024-02-08
-2023,Blois,Le Portel,71,80,0,2024-02-15
-2023,Cholet,JL Bourg,78,88,0,2024-02-15
-2023,Gravelines-Dunkerque,Dijon,71,55,0,2024-02-15
-2023,Le Mans,Chalon,98,72,0,2024-02-15
-2023,Limoges,Strasbourg,73,80,0,2024-02-15
-2023,Monaco,Roanne,116,73,0,2024-02-15
-2023,Nanterre,ASVEL,85,81,0,2024-02-15
-2023,Paris,Nancy,113,71,0,2024-02-15
-2023,Saint-Quentin,Metropolitans 92,68,82,0,2024-02-15
-2023,ASVEL,Nancy,89,64,0,2024-02-22
-2023,Blois,JL Bourg,102,93,0,2024-02-22
-2023,Cholet,Dijon,79,88,0,2024-02-22
-2023,Gravelines-Dunkerque,Chalon,81,83,0,2024-02-22
-2023,Le Mans,Strasbourg,86,78,0,2024-02-22
-2023,Limoges,Roanne,80,77,0,2024-02-22
-2023,Monaco,Nanterre,91,82,0,2024-02-22
-2023,Paris,Metropolitans 92,93,86,0,2024-02-22
-2023,Saint-Quentin,Le Portel,88,67,0,2024-02-22
-2023,Blois,Dijon,85,84,0,2024-02-29
-2023,Cholet,Chalon,84,77,0,2024-02-29
-2023,Gravelines-Dunkerque,Strasbourg,67,56,0,2024-02-29
-2023,Le Mans,Roanne,90,80,0,2024-02-29
-2023,Limoges,Nanterre,79,68,0,2024-02-29
-2023,Monaco,ASVEL,89,71,0,2024-02-29
-2023,Nancy,Metropolitans 92,85,69,0,2024-02-29
-2023,Paris,Le Portel,86,90,0,2024-02-29
-2023,Saint-Quentin,JL Bourg,92,61,0,2024-02-29
-2023,ASVEL,Metropolitans 92,102,76,0,2024-03-07
-2023,Blois,Chalon,92,95,1,2024-03-07
-2023,Cholet,Strasbourg,78,90,0,2024-03-07
-2023,Gravelines-Dunkerque,Roanne,82,67,0,2024-03-07
-2023,Le Mans,Nanterre,76,89,0,2024-03-07
-2023,Limoges,Monaco,59,72,0,2024-03-07
-2023,Nancy,Le Portel,76,91,0,2024-03-07
-2023,Paris,JL Bourg,84,80,0,2024-03-07
-2023,Saint-Quentin,Dijon,77,73,0,2024-03-07
-2023,Blois,Strasbourg,68,73,0,2024-03-15
-2023,Cholet,Roanne,90,86,0,2024-03-15
-2023,Gravelines-Dunkerque,Nanterre,80,79,0,2024-03-15
-2023,Le Mans,Monaco,84,95,0,2024-03-15
-2023,Limoges,ASVEL,79,68,0,2024-03-15
-2023,Metropolitans 92,Le Portel,62,78,0,2024-03-15
-2023,Nancy,JL Bourg,59,85,0,2024-03-15
-2023,Paris,Dijon,81,64,0,2024-03-15
-2023,Saint-Quentin,Chalon,75,70,0,2024-03-15
-2023,ASVEL,Le Portel,85,70,0,2024-03-22
-2023,Blois,Roanne,77,80,0,2024-03-22
-2023,Cholet,Nanterre,70,67,0,2024-03-22
-2023,Gravelines-Dunkerque,Monaco,68,72,0,2024-03-22
-2023,Le Mans,Limoges,101,75,0,2024-03-22
-2023,Metropolitans 92,JL Bourg,82,101,0,2024-03-22
-2023,Nancy,Dijon,66,56,0,2024-03-22
-2023,Paris,Chalon,85,70,0,2024-03-22
-2023,Saint-Quentin,Strasbourg,86,66,0,2024-03-22
-2023,Blois,Nanterre,78,89,0,2024-03-29
-2023,Cholet,Monaco,69,75,0,2024-03-29
-2023,Gravelines-Dunkerque,Limoges,79,83,0,2024-03-29
-2023,Le Mans,ASVEL,87,100,0,2024-03-29
-2023,Le Portel,JL Bourg,66,99,0,2024-03-29
-2023,Metropolitans 92,Dijon,82,77,0,2024-03-29
-2023,Nancy,Chalon,92,83,0,2024-03-29
-2023,Paris,Strasbourg,78,67,0,2024-03-29
-2023,Saint-Quentin,Roanne,57,64,0,2024-03-29
-2023,ASVEL,JL Bourg,84,61,0,2024-04-05
-2023,Blois,Monaco,73,89,0,2024-04-05
-2023,Cholet,Limoges,71,67,0,2024-04-05
-2023,Gravelines-Dunkerque,Le Mans,71,84,0,2024-04-05
-2023,Le Portel,Dijon,81,75,0,2024-04-05
-2023,Metropolitans 92,Chalon,75,83,0,2024-04-05
-2023,Nancy,Strasbourg,79,75,0,2024-04-05
-2023,Paris,Roanne,90,61,0,2024-04-05
-2023,Saint-Quentin,Nanterre,87,82,0,2024-04-05
-2023,Blois,Limoges,75,73,0,2024-04-12
-2023,Cholet,Le Mans,111,96,0,2024-04-12
-2023,Gravelines-Dunkerque,ASVEL,74,79,0,2024-04-12
-2023,JL Bourg,Dijon,66,60,0,2024-04-12
-2023,Le Portel,Chalon,99,96,1,2024-04-12
-2023,Metropolitans 92,Strasbourg,85,107,0,2024-04-12
-2023,Nancy,Roanne,84,79,0,2024-04-12
-2023,Paris,Nanterre,102,68,0,2024-04-12
-2023,Saint-Quentin,Monaco,71,69,0,2024-04-12
-2023,ASVEL,Dijon,79,74,0,2024-04-19
-2023,Blois,Le Mans,78,80,0,2024-04-19
-2023,Cholet,Gravelines-Dunkerque,72,84,0,2024-04-19
-2023,JL Bourg,Chalon,90,67,0,2024-04-19
-2023,Le Portel,Strasbourg,96,77,0,2024-04-19
-2023,Metropolitans 92,Roanne,90,83,0,2024-04-19
-2023,Nancy,Nanterre,91,71,0,2024-04-19
-2023,Paris,Monaco,85,92,0,2024-04-19
-2023,Saint-Quentin,Limoges,75,83,0,2024-04-19
-2023,Blois,Gravelines-Dunkerque,81,73,0,2024-04-26
-2023,Cholet,ASVEL,69,73,0,2024-04-26
-2023,Dijon,Chalon,73,66,0,2024-04-26
-2023,JL Bourg,Strasbourg,77,74,0,2024-04-26
-2023,Le Portel,Roanne,91,76,0,2024-04-26
-2023,Metropolitans 92,Nanterre,80,90,0,2024-04-26
-2023,Nancy,Monaco,94,86,0,2024-04-26
-2023,Paris,Limoges,101,77,0,2024-04-26
-2023,Saint-Quentin,Le Mans,81,64,0,2024-04-26
-2023,ASVEL,Chalon,79,72,0,2024-05-03
-2023,Blois,Cholet,78,80,0,2024-05-03
-2023,Dijon,Strasbourg,80,68,0,2024-05-03
-2023,JL Bourg,Roanne,81,84,0,2024-05-03
-2023,Le Portel,Nanterre,72,84,0,2024-05-03
-2023,Metropolitans 92,Monaco,77,85,0,2024-05-03
-2023,Nancy,Limoges,67,75,0,2024-05-03
-2023,Paris,Le Mans,112,71,0,2024-05-03
-2023,Saint-Quentin,Gravelines-Dunkerque,68,76,0,2024-05-03
-2023,Blois,ASVEL,72,98,0,2024-05-10
-2023,Chalon,Strasbourg,101,91,0,2024-05-10
-2023,Dijon,Roanne,99,82,0,2024-05-10
-2023,JL Bourg,Nanterre,85,67,0,2024-05-10
-2023,Le Portel,Monaco,67,74,0,2024-05-10
-2023,Metropolitans 92,Limoges,67,90,0,2024-05-10
-2023,Nancy,Le Mans,68,60,0,2024-05-10
-2023,Paris,Gravelines-Dunkerque,97,78,0,2024-05-10
-2023,Saint-Quentin,Cholet,75,60,0,2024-05-10
+season,date,home,away,hp,ap,ot,journee
+2023,2023-09-20,ASVEL,Strasbourg,91,72,0,1
+2023,2023-09-20,Chalon,Roanne,105,86,0,1
+2023,2023-09-20,Dijon,Nanterre,82,84,0,1
+2023,2023-09-20,JL Bourg,Monaco,74,70,0,1
+2023,2023-09-20,Le Portel,Limoges,76,66,0,1
+2023,2023-09-20,Metropolitans 92,Le Mans,88,100,0,1
+2023,2023-09-20,Nancy,Gravelines-Dunkerque,69,59,0,1
+2023,2023-09-20,Paris,Cholet,92,90,1,1
+2023,2023-09-20,Saint-Quentin,Blois,75,64,0,1
+2023,2023-09-27,Chalon,Nanterre,89,97,0,2
+2023,2023-09-27,Dijon,Monaco,72,80,0,2
+2023,2023-09-27,JL Bourg,Limoges,77,67,0,2
+2023,2023-09-27,Le Portel,Le Mans,85,76,0,2
+2023,2023-09-27,Metropolitans 92,Gravelines-Dunkerque,72,74,0,2
+2023,2023-09-27,Nancy,Cholet,77,85,0,2
+2023,2023-09-27,Paris,Blois,72,65,0,2
+2023,2023-09-27,Saint-Quentin,ASVEL,91,71,0,2
+2023,2023-09-27,Strasbourg,Roanne,97,82,0,2
+2023,2023-10-04,ASVEL,Roanne,93,88,0,3
+2023,2023-10-04,Chalon,Monaco,68,104,0,3
+2023,2023-10-04,Dijon,Limoges,90,60,0,3
+2023,2023-10-04,JL Bourg,Le Mans,86,67,0,3
+2023,2023-10-04,Le Portel,Gravelines-Dunkerque,91,82,0,3
+2023,2023-10-04,Metropolitans 92,Cholet,78,92,0,3
+2023,2023-10-04,Nancy,Blois,93,96,0,3
+2023,2023-10-04,Paris,Saint-Quentin,87,65,0,3
+2023,2023-10-04,Strasbourg,Nanterre,71,57,0,3
+2023,2023-10-11,Chalon,Limoges,80,78,0,4
+2023,2023-10-11,Dijon,Le Mans,87,77,0,4
+2023,2023-10-11,JL Bourg,Gravelines-Dunkerque,90,82,0,4
+2023,2023-10-11,Le Portel,Cholet,87,84,1,4
+2023,2023-10-11,Metropolitans 92,Blois,81,87,0,4
+2023,2023-10-11,Nancy,Saint-Quentin,69,77,0,4
+2023,2023-10-11,Paris,ASVEL,92,86,0,4
+2023,2023-10-11,Roanne,Nanterre,72,86,0,4
+2023,2023-10-11,Strasbourg,Monaco,67,83,0,4
+2023,2023-10-18,ASVEL,Nanterre,100,76,0,5
+2023,2023-10-18,Chalon,Le Mans,73,68,0,5
+2023,2023-10-18,Dijon,Gravelines-Dunkerque,90,69,0,5
+2023,2023-10-18,JL Bourg,Cholet,78,80,0,5
+2023,2023-10-18,Le Portel,Blois,94,89,0,5
+2023,2023-10-18,Metropolitans 92,Saint-Quentin,69,73,0,5
+2023,2023-10-18,Nancy,Paris,81,78,0,5
+2023,2023-10-18,Roanne,Monaco,92,99,0,5
+2023,2023-10-18,Strasbourg,Limoges,80,87,0,5
+2023,2023-10-25,Chalon,Gravelines-Dunkerque,79,63,0,6
+2023,2023-10-25,Dijon,Cholet,60,62,0,6
+2023,2023-10-25,JL Bourg,Blois,81,66,0,6
+2023,2023-10-25,Le Portel,Saint-Quentin,85,76,0,6
+2023,2023-10-25,Metropolitans 92,Paris,77,93,0,6
+2023,2023-10-25,Nancy,ASVEL,58,83,0,6
+2023,2023-10-25,Nanterre,Monaco,80,86,0,6
+2023,2023-10-25,Roanne,Limoges,79,76,0,6
+2023,2023-10-25,Strasbourg,Le Mans,71,80,0,6
+2023,2023-11-01,ASVEL,Monaco,79,87,0,7
+2023,2023-11-01,Chalon,Cholet,79,81,0,7
+2023,2023-11-01,Dijon,Blois,81,63,0,7
+2023,2023-11-01,JL Bourg,Saint-Quentin,86,71,0,7
+2023,2023-11-01,Le Portel,Paris,66,80,0,7
+2023,2023-11-01,Metropolitans 92,Nancy,80,89,0,7
+2023,2023-11-01,Nanterre,Limoges,113,77,0,7
+2023,2023-11-01,Roanne,Le Mans,70,71,0,7
+2023,2023-11-01,Strasbourg,Gravelines-Dunkerque,68,65,0,7
+2023,2023-11-08,Chalon,Blois,93,75,0,8
+2023,2023-11-08,Dijon,Saint-Quentin,77,69,0,8
+2023,2023-11-08,JL Bourg,Paris,83,81,0,8
+2023,2023-11-08,Le Portel,Nancy,88,93,0,8
+2023,2023-11-08,Metropolitans 92,ASVEL,79,103,0,8
+2023,2023-11-08,Monaco,Limoges,94,56,0,8
+2023,2023-11-08,Nanterre,Le Mans,93,81,0,8
+2023,2023-11-08,Roanne,Gravelines-Dunkerque,69,78,0,8
+2023,2023-11-08,Strasbourg,Cholet,79,76,0,8
+2023,2023-11-15,ASVEL,Limoges,77,66,0,9
+2023,2023-11-15,Chalon,Saint-Quentin,97,90,1,9
+2023,2023-11-15,Dijon,Paris,72,80,0,9
+2023,2023-11-15,JL Bourg,Nancy,103,78,0,9
+2023,2023-11-15,Le Portel,Metropolitans 92,104,79,0,9
+2023,2023-11-15,Monaco,Le Mans,78,74,0,9
+2023,2023-11-15,Nanterre,Gravelines-Dunkerque,78,75,0,9
+2023,2023-11-15,Roanne,Cholet,82,69,0,9
+2023,2023-11-15,Strasbourg,Blois,80,88,0,9
+2023,2023-11-23,Chalon,Paris,73,84,0,10
+2023,2023-11-23,Dijon,Nancy,88,73,0,10
+2023,2023-11-23,JL Bourg,Metropolitans 92,94,73,0,10
+2023,2023-11-23,Le Portel,ASVEL,66,101,0,10
+2023,2023-11-23,Limoges,Le Mans,79,78,0,10
+2023,2023-11-23,Monaco,Gravelines-Dunkerque,91,76,0,10
+2023,2023-11-23,Nanterre,Cholet,91,87,0,10
+2023,2023-11-23,Roanne,Blois,83,81,0,10
+2023,2023-11-23,Strasbourg,Saint-Quentin,78,66,0,10
+2023,2023-11-30,ASVEL,Le Mans,89,75,0,11
+2023,2023-11-30,Chalon,Nancy,70,74,0,11
+2023,2023-11-30,Dijon,Metropolitans 92,94,54,0,11
+2023,2023-11-30,JL Bourg,Le Portel,106,74,0,11
+2023,2023-11-30,Limoges,Gravelines-Dunkerque,88,63,0,11
+2023,2023-11-30,Monaco,Cholet,66,79,0,11
+2023,2023-11-30,Nanterre,Blois,103,106,0,11
+2023,2023-11-30,Roanne,Saint-Quentin,90,96,0,11
+2023,2023-11-30,Strasbourg,Paris,89,86,0,11
+2023,2023-12-07,Chalon,Metropolitans 92,86,92,0,12
+2023,2023-12-07,Dijon,Le Portel,92,80,0,12
+2023,2023-12-07,JL Bourg,ASVEL,74,80,0,12
+2023,2023-12-07,Le Mans,Gravelines-Dunkerque,78,68,0,12
+2023,2023-12-07,Limoges,Cholet,81,90,0,12
+2023,2023-12-07,Monaco,Blois,99,81,0,12
+2023,2023-12-07,Nanterre,Saint-Quentin,80,75,0,12
+2023,2023-12-07,Roanne,Paris,83,76,0,12
+2023,2023-12-07,Strasbourg,Nancy,88,78,0,12
+2023,2023-12-14,ASVEL,Gravelines-Dunkerque,86,83,1,13
+2023,2023-12-14,Chalon,Le Portel,94,65,0,13
+2023,2023-12-14,Dijon,JL Bourg,66,84,0,13
+2023,2023-12-14,Le Mans,Cholet,85,88,1,13
+2023,2023-12-14,Limoges,Blois,86,78,0,13
+2023,2023-12-14,Monaco,Saint-Quentin,77,75,0,13
+2023,2023-12-14,Nanterre,Paris,67,98,0,13
+2023,2023-12-14,Roanne,Nancy,107,80,0,13
+2023,2023-12-14,Strasbourg,Metropolitans 92,74,61,0,13
+2023,2023-12-21,Chalon,JL Bourg,62,89,0,14
+2023,2023-12-21,Dijon,ASVEL,71,73,0,14
+2023,2023-12-21,Gravelines-Dunkerque,Cholet,66,59,0,14
+2023,2023-12-21,Le Mans,Blois,110,96,0,14
+2023,2023-12-21,Limoges,Saint-Quentin,83,80,0,14
+2023,2023-12-21,Monaco,Paris,84,62,0,14
+2023,2023-12-21,Nanterre,Nancy,89,88,0,14
+2023,2023-12-21,Roanne,Metropolitans 92,105,93,0,14
+2023,2023-12-21,Strasbourg,Le Portel,90,75,0,14
+2023,2023-12-28,ASVEL,Cholet,100,95,0,15
+2023,2023-12-28,Chalon,Dijon,76,84,0,15
+2023,2023-12-28,Gravelines-Dunkerque,Blois,82,73,0,15
+2023,2023-12-28,Le Mans,Saint-Quentin,76,77,0,15
+2023,2023-12-28,Limoges,Paris,65,83,0,15
+2023,2023-12-28,Monaco,Nancy,86,100,0,15
+2023,2023-12-28,Nanterre,Metropolitans 92,94,86,0,15
+2023,2023-12-28,Roanne,Le Portel,84,83,0,15
+2023,2023-12-28,Strasbourg,JL Bourg,65,83,0,15
+2023,2024-01-04,Chalon,ASVEL,88,87,1,16
+2023,2024-01-04,Cholet,Blois,71,80,0,16
+2023,2024-01-04,Gravelines-Dunkerque,Saint-Quentin,69,78,0,16
+2023,2024-01-04,Le Mans,Paris,55,88,0,16
+2023,2024-01-04,Limoges,Nancy,102,99,0,16
+2023,2024-01-04,Monaco,Metropolitans 92,84,72,0,16
+2023,2024-01-04,Nanterre,Le Portel,109,88,0,16
+2023,2024-01-04,Roanne,JL Bourg,87,111,0,16
+2023,2024-01-04,Strasbourg,Dijon,64,81,0,16
+2023,2024-01-11,ASVEL,Blois,85,77,0,17
+2023,2024-01-11,Cholet,Saint-Quentin,73,69,0,17
+2023,2024-01-11,Gravelines-Dunkerque,Paris,66,77,0,17
+2023,2024-01-11,Le Mans,Nancy,98,66,0,17
+2023,2024-01-11,Limoges,Metropolitans 92,98,88,0,17
+2023,2024-01-11,Monaco,Le Portel,101,67,0,17
+2023,2024-01-11,Nanterre,JL Bourg,105,98,0,17
+2023,2024-01-11,Roanne,Dijon,92,105,0,17
+2023,2024-01-11,Strasbourg,Chalon,82,86,0,17
+2023,2024-01-18,Blois,Saint-Quentin,60,75,0,18
+2023,2024-01-18,Cholet,Paris,70,77,0,18
+2023,2024-01-18,Gravelines-Dunkerque,Nancy,83,76,0,18
+2023,2024-01-18,Le Mans,Metropolitans 92,110,96,0,18
+2023,2024-01-18,Limoges,Le Portel,73,76,0,18
+2023,2024-01-18,Monaco,JL Bourg,78,67,0,18
+2023,2024-01-18,Nanterre,Dijon,67,87,0,18
+2023,2024-01-18,Roanne,Chalon,82,93,0,18
+2023,2024-01-18,Strasbourg,ASVEL,82,80,0,18
+2023,2024-01-25,ASVEL,Saint-Quentin,79,77,0,19
+2023,2024-01-25,Blois,Paris,88,92,0,19
+2023,2024-01-25,Cholet,Nancy,67,76,0,19
+2023,2024-01-25,Gravelines-Dunkerque,Metropolitans 92,106,76,0,19
+2023,2024-01-25,Le Mans,Le Portel,73,67,0,19
+2023,2024-01-25,Limoges,JL Bourg,86,90,0,19
+2023,2024-01-25,Monaco,Dijon,88,74,0,19
+2023,2024-01-25,Nanterre,Chalon,83,72,0,19
+2023,2024-01-25,Roanne,Strasbourg,82,98,0,19
+2023,2024-02-01,Blois,Nancy,99,98,1,20
+2023,2024-02-01,Cholet,Metropolitans 92,112,83,0,20
+2023,2024-02-01,Gravelines-Dunkerque,Le Portel,77,83,1,20
+2023,2024-02-01,Le Mans,JL Bourg,64,80,0,20
+2023,2024-02-01,Limoges,Dijon,93,77,0,20
+2023,2024-02-01,Monaco,Chalon,82,69,0,20
+2023,2024-02-01,Nanterre,Strasbourg,76,68,0,20
+2023,2024-02-01,Roanne,ASVEL,66,69,0,20
+2023,2024-02-01,Saint-Quentin,Paris,65,81,0,20
+2023,2024-02-08,ASVEL,Paris,66,86,0,21
+2023,2024-02-08,Blois,Metropolitans 92,95,84,0,21
+2023,2024-02-08,Cholet,Le Portel,89,82,0,21
+2023,2024-02-08,Gravelines-Dunkerque,JL Bourg,64,75,0,21
+2023,2024-02-08,Le Mans,Dijon,76,67,0,21
+2023,2024-02-08,Limoges,Chalon,107,88,0,21
+2023,2024-02-08,Monaco,Strasbourg,92,78,0,21
+2023,2024-02-08,Nanterre,Roanne,83,77,0,21
+2023,2024-02-08,Saint-Quentin,Nancy,71,78,0,21
+2023,2024-02-15,Blois,Le Portel,71,80,0,22
+2023,2024-02-15,Cholet,JL Bourg,78,88,0,22
+2023,2024-02-15,Gravelines-Dunkerque,Dijon,71,55,0,22
+2023,2024-02-15,Le Mans,Chalon,98,72,0,22
+2023,2024-02-15,Limoges,Strasbourg,73,80,0,22
+2023,2024-02-15,Monaco,Roanne,116,73,0,22
+2023,2024-02-15,Nanterre,ASVEL,85,81,0,22
+2023,2024-02-15,Paris,Nancy,113,71,0,22
+2023,2024-02-15,Saint-Quentin,Metropolitans 92,68,82,0,22
+2023,2024-02-22,ASVEL,Nancy,89,64,0,23
+2023,2024-02-22,Blois,JL Bourg,102,93,0,23
+2023,2024-02-22,Cholet,Dijon,79,88,0,23
+2023,2024-02-22,Gravelines-Dunkerque,Chalon,81,83,0,23
+2023,2024-02-22,Le Mans,Strasbourg,86,78,0,23
+2023,2024-02-22,Limoges,Roanne,80,77,0,23
+2023,2024-02-22,Monaco,Nanterre,91,82,0,23
+2023,2024-02-22,Paris,Metropolitans 92,93,86,0,23
+2023,2024-02-22,Saint-Quentin,Le Portel,88,67,0,23
+2023,2024-02-29,Blois,Dijon,85,84,0,24
+2023,2024-02-29,Cholet,Chalon,84,77,0,24
+2023,2024-02-29,Gravelines-Dunkerque,Strasbourg,67,56,0,24
+2023,2024-02-29,Le Mans,Roanne,90,80,0,24
+2023,2024-02-29,Limoges,Nanterre,79,68,0,24
+2023,2024-02-29,Monaco,ASVEL,89,71,0,24
+2023,2024-02-29,Nancy,Metropolitans 92,85,69,0,24
+2023,2024-02-29,Paris,Le Portel,86,90,0,24
+2023,2024-02-29,Saint-Quentin,JL Bourg,92,61,0,24
+2023,2024-03-07,ASVEL,Metropolitans 92,102,76,0,25
+2023,2024-03-07,Blois,Chalon,92,95,1,25
+2023,2024-03-07,Cholet,Strasbourg,78,90,0,25
+2023,2024-03-07,Gravelines-Dunkerque,Roanne,82,67,0,25
+2023,2024-03-07,Le Mans,Nanterre,76,89,0,25
+2023,2024-03-07,Limoges,Monaco,59,72,0,25
+2023,2024-03-07,Nancy,Le Portel,76,91,0,25
+2023,2024-03-07,Paris,JL Bourg,84,80,0,25
+2023,2024-03-07,Saint-Quentin,Dijon,77,73,0,25
+2023,2024-03-15,Blois,Strasbourg,68,73,0,26
+2023,2024-03-15,Cholet,Roanne,90,86,0,26
+2023,2024-03-15,Gravelines-Dunkerque,Nanterre,80,79,0,26
+2023,2024-03-15,Le Mans,Monaco,84,95,0,26
+2023,2024-03-15,Limoges,ASVEL,79,68,0,26
+2023,2024-03-15,Metropolitans 92,Le Portel,62,78,0,26
+2023,2024-03-15,Nancy,JL Bourg,59,85,0,26
+2023,2024-03-15,Paris,Dijon,81,64,0,26
+2023,2024-03-15,Saint-Quentin,Chalon,75,70,0,26
+2023,2024-03-22,ASVEL,Le Portel,85,70,0,27
+2023,2024-03-22,Blois,Roanne,77,80,0,27
+2023,2024-03-22,Cholet,Nanterre,70,67,0,27
+2023,2024-03-22,Gravelines-Dunkerque,Monaco,68,72,0,27
+2023,2024-03-22,Le Mans,Limoges,101,75,0,27
+2023,2024-03-22,Metropolitans 92,JL Bourg,82,101,0,27
+2023,2024-03-22,Nancy,Dijon,66,56,0,27
+2023,2024-03-22,Paris,Chalon,85,70,0,27
+2023,2024-03-22,Saint-Quentin,Strasbourg,86,66,0,27
+2023,2024-03-29,Blois,Nanterre,78,89,0,28
+2023,2024-03-29,Cholet,Monaco,69,75,0,28
+2023,2024-03-29,Gravelines-Dunkerque,Limoges,79,83,0,28
+2023,2024-03-29,Le Mans,ASVEL,87,100,0,28
+2023,2024-03-29,Le Portel,JL Bourg,66,99,0,28
+2023,2024-03-29,Metropolitans 92,Dijon,82,77,0,28
+2023,2024-03-29,Nancy,Chalon,92,83,0,28
+2023,2024-03-29,Paris,Strasbourg,78,67,0,28
+2023,2024-03-29,Saint-Quentin,Roanne,57,64,0,28
+2023,2024-04-05,ASVEL,JL Bourg,84,61,0,29
+2023,2024-04-05,Blois,Monaco,73,89,0,29
+2023,2024-04-05,Cholet,Limoges,71,67,0,29
+2023,2024-04-05,Gravelines-Dunkerque,Le Mans,71,84,0,29
+2023,2024-04-05,Le Portel,Dijon,81,75,0,29
+2023,2024-04-05,Metropolitans 92,Chalon,75,83,0,29
+2023,2024-04-05,Nancy,Strasbourg,79,75,0,29
+2023,2024-04-05,Paris,Roanne,90,61,0,29
+2023,2024-04-05,Saint-Quentin,Nanterre,87,82,0,29
+2023,2024-04-12,Blois,Limoges,75,73,0,30
+2023,2024-04-12,Cholet,Le Mans,111,96,0,30
+2023,2024-04-12,Gravelines-Dunkerque,ASVEL,74,79,0,30
+2023,2024-04-12,JL Bourg,Dijon,66,60,0,30
+2023,2024-04-12,Le Portel,Chalon,99,96,1,30
+2023,2024-04-12,Metropolitans 92,Strasbourg,85,107,0,30
+2023,2024-04-12,Nancy,Roanne,84,79,0,30
+2023,2024-04-12,Paris,Nanterre,102,68,0,30
+2023,2024-04-12,Saint-Quentin,Monaco,71,69,0,30
+2023,2024-04-19,ASVEL,Dijon,79,74,0,31
+2023,2024-04-19,Blois,Le Mans,78,80,0,31
+2023,2024-04-19,Cholet,Gravelines-Dunkerque,72,84,0,31
+2023,2024-04-19,JL Bourg,Chalon,90,67,0,31
+2023,2024-04-19,Le Portel,Strasbourg,96,77,0,31
+2023,2024-04-19,Metropolitans 92,Roanne,90,83,0,31
+2023,2024-04-19,Nancy,Nanterre,91,71,0,31
+2023,2024-04-19,Paris,Monaco,85,92,0,31
+2023,2024-04-19,Saint-Quentin,Limoges,75,83,0,31
+2023,2024-04-26,Blois,Gravelines-Dunkerque,81,73,0,32
+2023,2024-04-26,Cholet,ASVEL,69,73,0,32
+2023,2024-04-26,Dijon,Chalon,73,66,0,32
+2023,2024-04-26,JL Bourg,Strasbourg,77,74,0,32
+2023,2024-04-26,Le Portel,Roanne,91,76,0,32
+2023,2024-04-26,Metropolitans 92,Nanterre,80,90,0,32
+2023,2024-04-26,Nancy,Monaco,94,86,0,32
+2023,2024-04-26,Paris,Limoges,101,77,0,32
+2023,2024-04-26,Saint-Quentin,Le Mans,81,64,0,32
+2023,2024-05-03,ASVEL,Chalon,79,72,0,33
+2023,2024-05-03,Blois,Cholet,78,80,0,33
+2023,2024-05-03,Dijon,Strasbourg,80,68,0,33
+2023,2024-05-03,JL Bourg,Roanne,81,84,0,33
+2023,2024-05-03,Le Portel,Nanterre,72,84,0,33
+2023,2024-05-03,Metropolitans 92,Monaco,77,85,0,33
+2023,2024-05-03,Nancy,Limoges,67,75,0,33
+2023,2024-05-03,Paris,Le Mans,112,71,0,33
+2023,2024-05-03,Saint-Quentin,Gravelines-Dunkerque,68,76,0,33
+2023,2024-05-10,Blois,ASVEL,72,98,0,34
+2023,2024-05-10,Chalon,Strasbourg,101,91,0,34
+2023,2024-05-10,Dijon,Roanne,99,82,0,34
+2023,2024-05-10,JL Bourg,Nanterre,85,67,0,34
+2023,2024-05-10,Le Portel,Monaco,67,74,0,34
+2023,2024-05-10,Metropolitans 92,Limoges,67,90,0,34
+2023,2024-05-10,Nancy,Le Mans,68,60,0,34
+2023,2024-05-10,Paris,Gravelines-Dunkerque,97,78,0,34
+2023,2024-05-10,Saint-Quentin,Cholet,75,60,0,34

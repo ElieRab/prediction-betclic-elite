@@ -22,8 +22,9 @@ import numpy as np
 import pandas as pd
 import requests
 
+from . import lnb
 from .config import (OT_MINUTES, PAGE_PATTERNS, RAW_DIR, REGULATION_MINUTES,
-                     WIKI_API, Config)
+                     WIKI_API, Config, current_season)
 
 UA = "bepred/1.0 (projet personnel de prevision Betclic Elite)"
 _DASH = "[-‐‑‒–—―−]"
@@ -50,6 +51,7 @@ _ALIASES: tuple[tuple[str, str], ...] = (
     ("le portel", "Le Portel"), ("essm", "Le Portel"),
     ("saint-quentin", "Saint-Quentin"), ("st-quentin", "Saint-Quentin"),
     ("pau", "Pau-Lacq-Orthez"), ("orthez", "Pau-Lacq-Orthez"),
+    ("bearnais", "Pau-Lacq-Orthez"),   # nom retenu par Wikipedia 2026-27
     ("roanne", "Roanne"),
     ("blois", "Blois"),
     ("rochel", "La Rochelle"),
@@ -87,31 +89,34 @@ _COLORS = {
     "Metropolitans 92": "#0b3d91", "Chalons-Reims": "#e2001a",
 }
 
-#: Betclic Elite 2026-2027 : 15 clubs certains, le 16e depend du sort de Monaco.
-#: La DNCCG puis la chambre d'appel ont refuse l'engagement de l'AS Monaco
-#: (1er aout 2026) ; si le refus est confirme, Saint-Quentin -- relegue
-#: sportivement -- serait repeche.
+#: Betclic Elite 2026-2027 : la composition est desormais connue.
+#: La DNCCG, puis la chambre d'appel, ont refuse l'engagement de l'AS Monaco ;
+#: Saint-Quentin, relegue sportivement, a ete repeche. Le championnat a
+#: demarre le 25 septembre 2026 avec ces seize clubs.
 SEASON_2026_CORE = (
     "ASVEL", "Boulazac", "Chalon", "Cholet", "Dijon", "Gravelines-Dunkerque",
     "JL Bourg", "Le Mans", "Limoges", "Nancy", "Nanterre", "Paris",
     "Pau-Lacq-Orthez", "Roanne", "Strasbourg",
 )
+
+#: Une seule composition est encore simulable. L'hypothese Monaco a ete
+#: conservee comme cle d'URL -- les adresses publiees avant la decision
+#: continuent de fonctionner (cf. LEGACY_SCENARIOS) -- mais elle n'est plus
+#: projetee : Saint-Quentin a joue, et rejouer la saison sans lui reviendrait
+#: a effacer des resultats reels.
 SCENARIOS: dict[str, dict] = {
-    "monaco": {
-        "libelle": "Avec Monaco, sans Saint-Quentin",
-        "court": "Monaco",
-        "seizieme": "Monaco",
-        "resume": "L'AS Monaco obtient gain de cause devant le CNOSF et conserve "
-                  "sa place ; Saint-Quentin reste en Élite 2.",
-    },
     "saint-quentin": {
-        "libelle": "Avec Saint-Quentin, sans Monaco",
+        "libelle": "Composition officielle",
         "court": "Saint-Quentin",
         "seizieme": "Saint-Quentin",
-        "resume": "Le refus d'engagement de Monaco est confirmé ; Saint-Quentin, "
-                  "relégué sportivement, est repêché en Betclic Élite.",
+        "resume": "l'engagement de l'AS Monaco a été refusé ; "
+                  "Saint-Quentin, relégué sportivement, a été "
+                  "repêché à sa place.",
     },
 }
+
+#: Anciennes cles d'URL -> cle actuelle, pour ne casser aucun lien partage.
+LEGACY_SCENARIOS = {"monaco": "saint-quentin"}
 
 
 def _fold(text: str) -> str:
@@ -169,16 +174,16 @@ def round_robin(teams: list[str]) -> list[list[tuple[str, str]]]:
     return aller + retour
 
 
-def season_calendar(teams: list[str], season: int) -> dict[tuple[str, str], date]:
-    """Pseudo-date de chaque affiche : les journees etalees de septembre a mai."""
+def season_calendar(teams: list[str], season: int) -> dict[tuple[str, str], tuple[date, int]]:
+    """Pseudo-date et numero de journee de chaque affiche, de septembre a mai."""
     days = round_robin(sorted(teams))
     start, end = date(season, 9, 20), date(season + 1, 5, 10)
     span = (end - start).days
-    out: dict[tuple[str, str], date] = {}
+    out: dict[tuple[str, str], tuple[date, int]] = {}
     for i, day in enumerate(days):
         when = start + timedelta(days=round(span * i / max(1, len(days) - 1)))
         for home, away in day:
-            out[(home, away)] = when
+            out[(home, away)] = (when, i + 1)
     return out
 
 
@@ -238,8 +243,9 @@ def parse_results(text: str, season: int) -> pd.DataFrame:
     df = df.drop_duplicates(subset=["home", "away"], keep="first")
     teams = sorted(set(df.home) | set(df.away) | set(codes.values()))
     cal = season_calendar(teams, season)
-    df["date"] = [cal.get((h, a), date(season + 1, 1, 1))
-                  for h, a in zip(df.home, df.away)]
+    defaut = (date(season + 1, 1, 1), 0)
+    df["date"] = [cal.get((h, a), defaut)[0] for h, a in zip(df.home, df.away)]
+    df["journee"] = [cal.get((h, a), defaut)[1] for h, a in zip(df.home, df.away)]
     return df.sort_values(["date", "home"], kind="stable").reset_index(drop=True)
 
 
@@ -247,33 +253,89 @@ def _raw_path(season: int) -> Path:
     return RAW_DIR / f"elite_{season}.csv"
 
 
-def refresh(cfg: Config | None = None, seasons: list[int] | None = None) -> dict:
-    """Retelecharge les saisons demandees et reecrit le cache CSV.
+def merge_results(old: pd.DataFrame, new: pd.DataFrame) -> pd.DataFrame:
+    """Fusionne deux releves de resultats, le plus recent faisant foi.
 
-    Renvoie {saison: nb de matchs}. -1 signale une page indisponible dont le
-    cache local a ete conserve.
+    L'API de la LNB ne renvoie qu'une fenetre glissante : le cache sert
+    d'accumulateur, et une affiche deja connue est remplacee par sa derniere
+    version (un score corrige apres coup, par exemple).
+    """
+    frames = [f for f in (old, new) if f is not None and not f.empty]
+    if not frames:
+        return pd.DataFrame(columns=COLUMNS)
+    out = pd.concat(frames, ignore_index=True)
+    out = out.drop_duplicates(subset=["home", "away"], keep="last")
+    for col in COLUMNS:
+        if col not in out.columns:
+            out[col] = 0
+    return (out[COLUMNS].sort_values(["date", "home"], kind="stable")
+            .reset_index(drop=True))
+
+
+def _read_cache(season: int) -> pd.DataFrame:
+    path = _raw_path(season)
+    if not path.exists():
+        return pd.DataFrame(columns=COLUMNS)
+    df = pd.read_csv(path, encoding="utf-8")
+    df["date"] = pd.to_datetime(df["date"]).dt.date
+    if "journee" not in df.columns:
+        df["journee"] = 0
+    return df
+
+
+def refresh(cfg: Config | None = None, seasons: list[int] | None = None,
+            verbose: bool = False) -> dict:
+    """Retelecharge les saisons demandees et met le cache CSV a jour.
+
+    La saison en cours passe par l'API officielle de la LNB (resultats
+    immediats, dates reelles) ; l'historique par les grilles de Wikipedia.
+    Wikipedia sert de repli si l'API est indisponible.
+
+    Renvoie {saison: nb de matchs retenus}. -1 signale une saison dont aucune
+    source n'a repondu et dont le cache local a ete conserve.
     """
     cfg = cfg or Config.load()
     seasons = seasons or cfg.seasons_to_load()
     RAW_DIR.mkdir(parents=True, exist_ok=True)
+    courante = current_season()
     report: dict[int, int] = {}
+
     with requests.Session() as s:
         s.headers.update({"User-Agent": UA})
         for season in seasons:
-            text = fetch_season_wikitext(season, s)
-            df = parse_results(text, season) if text else pd.DataFrame()
-            if df.empty:
-                # Saison sans grille publiee (a venir, ou page absente) : on
-                # garde le cache existant plutot que de l'effacer.
+            cache = _read_cache(season)
+            fusion = None
+
+            if season >= courante:
+                try:
+                    brut = lnb.fetch_matches(season, s)
+                    joues = lnb.parse_matches(brut, season)
+                    if not joues.empty:
+                        fusion = merge_results(cache, joues)
+                        if verbose:
+                            print(f"  {season} : {len(joues)} match(s) vus par l'API LNB")
+                except (requests.RequestException, lnb.LNBError, ValueError, KeyError) as exc:
+                    if verbose:
+                        print(f"  {season} : API LNB indisponible ({exc})")
+
+            if fusion is None:
+                text = fetch_season_wikitext(season, s)
+                grille = parse_results(text, season) if text else pd.DataFrame()
+                if not grille.empty:
+                    # La grille Wikipedia est exhaustive : elle fait autorite
+                    # sur une saison terminee.
+                    fusion = merge_results(cache, grille)
+                time.sleep(0.5)
+
+            if fusion is None or fusion.empty:
                 report[season] = -1 if _raw_path(season).exists() else 0
                 continue
-            df.to_csv(_raw_path(season), index=False, encoding="utf-8")
-            report[season] = len(df)
-            time.sleep(0.5)
+            fusion.to_csv(_raw_path(season), index=False, encoding="utf-8")
+            report[season] = len(fusion)
     return report
 
 
-EMPTY = ["season", "date", "home", "away", "hp", "ap", "ot"]
+COLUMNS = ["season", "date", "home", "away", "hp", "ap", "ot", "journee"]
 
 
 def load_matches(cfg: Config | None = None, force: bool = False) -> pd.DataFrame:
@@ -282,16 +344,10 @@ def load_matches(cfg: Config | None = None, force: bool = False) -> pd.DataFrame
     seasons = cfg.seasons_to_load()
     if force or not all(_raw_path(s).exists() for s in seasons[:-1]):
         refresh(cfg, seasons)
-    frames = []
-    for season in seasons:
-        path = _raw_path(season)
-        if not path.exists():
-            continue
-        df = pd.read_csv(path, encoding="utf-8")
-        df["date"] = pd.to_datetime(df["date"]).dt.date
-        frames.append(df)
+    frames = [_read_cache(season) for season in seasons]
+    frames = [f for f in frames if not f.empty]
     if not frames:
-        return pd.DataFrame(columns=EMPTY)
+        return pd.DataFrame(columns=COLUMNS)
     out = pd.concat(frames, ignore_index=True)
     return out.sort_values(["date", "home"], kind="stable").reset_index(drop=True)
 

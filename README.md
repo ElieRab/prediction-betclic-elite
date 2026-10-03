@@ -6,9 +6,9 @@ points de type Poisson estime comment il marque, et une simulation de
 Monte-Carlo rejoue la saison des milliers de fois — saison régulière, play-in
 et playoffs compris.
 
-Le seizième club du championnat n'étant pas connu, **les deux compositions
-possibles sont projetées côte à côte** : avec l'AS Monaco et sans
-Saint-Quentin, ou l'inverse.
+La composition du championnat est désormais connue : l'engagement de l'AS
+Monaco a été refusé, Saint-Quentin a été repêché, et la saison a démarré le
+25 septembre 2026.
 
 ## Lancer
 
@@ -28,7 +28,7 @@ résultats et réajuste tout le modèle. Il faut compter une dizaine de secondes
 | Page | Ce qu'on y trouve |
 |---|---|
 | **Projection** | Classement projeté : victoires attendues, top 6, play-in, playoffs, titre, relégation |
-| **Scénarios** | Monaco ou Saint-Quentin : ce que change le seizième club, club par club |
+| **Composition** | Les seize clubs, et ce que le modèle disait avant que le 16ᵉ soit connu |
 | **Rangs** | Probabilité de finir à chaque place, pour chaque club |
 | **Calendrier** | Toutes les affiches restantes avec probabilité, écart et total attendus |
 | **Match** | Une confrontation au choix, avec la loi jointe des scores |
@@ -39,7 +39,6 @@ résultats et réajuste tout le modèle. Il faut compter une dizaine de secondes
 
 ```bash
 python -m bepred projection --sims 20000     # classement projeté, deux scénarios
-python -m bepred scenarios                   # écarts entre les deux hypothèses
 python -m bepred match Monaco Paris          # une affiche
 python -m bepred classement --saison 2025    # classement réel d'une saison
 python -m bepred fiabilite                   # validation glissante
@@ -47,21 +46,25 @@ python -m bepred regler                      # réglage des hyperparamètres
 python -m bepred actualiser                  # retélécharger les résultats
 ```
 
-## Les deux scénarios 2026-2027
+## La composition du championnat
 
-La DNCCG puis la chambre d'appel de la fédération ont refusé l'engagement de
-l'AS Monaco en championnat de France pour 2026-2027, le club poursuivant la
-procédure devant le CNOSF. Saint-Quentin, relégué sportivement à l'issue de
-2025-2026, serait repêché si le refus était confirmé.
+La DNCCG, puis la chambre d'appel de la fédération, ont refusé l'engagement de
+l'AS Monaco en championnat de France pour 2026-2027. Saint-Quentin, relégué
+sportivement à l'issue de 2025-2026, a été repêché à sa place.
 
-Quinze clubs sont donc certains : ASVEL, Boulazac, Chalon, Cholet, Dijon,
+Les seize clubs : ASVEL, Boulazac, Chalon, Cholet, Dijon,
 Gravelines-Dunkerque, JL Bourg, Le Mans, Limoges, Nancy, Nanterre, Paris,
-Pau-Lacq-Orthez, Roanne, Strasbourg. Le seizième est Monaco **ou**
-Saint-Quentin — jamais les deux.
+Pau-Lacq-Orthez, Roanne, Saint-Quentin, Strasbourg.
 
-L'écart entre les deux hypothèses ne concerne pas que le club concerné :
-remplacer un prétendant au titre par un promu change deux matchs sur trente
-pour chacun des quinze autres. La page **Scénarios** chiffre ce déplacement.
+Jusqu'en août 2026, les deux compositions possibles étaient projetées côte à
+côte. L'hypothèse Monaco n'est plus simulée — et pas seulement parce qu'elle
+est caduque : Saint-Quentin a joué, et rejouer la saison sans lui demanderait
+d'effacer des résultats réels. La page **Composition** conserve ce que le
+modèle en disait avant la décision, non corrigé après coup.
+
+Les adresses en `/monaco/…`, publiées avant la décision, redirigent vers la
+composition officielle. La liste des clubs n'est plus tenue à la main : dès
+qu'un match est joué, elle est déduite des résultats.
 
 ## Mettre le site en ligne
 
@@ -193,15 +196,31 @@ que par tirage : moins de bruit pour le même coût.
 
 ## Les données
 
-Les scores match par match viennent des **tableaux croisés de Wikipedia EN**
-(modèle `sports results`), seule source libre publiant la grille complète
-(domicile × extérieur) de la Betclic Élite et mise à jour au fil de la saison.
-Trois saisons sont chargées par défaut : 2023-24, 2024-25, 2025-26. Les pages
-antérieures ne publient pas de grille exploitable.
+Deux sources, selon l'ancienneté.
 
-Les fichiers sont mis en cache dans `data/raw/elite_<année>.csv`. La page de
-la saison 2026-2027 sera prise en compte automatiquement dès qu'elle existera :
-il suffira d'appuyer sur **Actualiser**.
+**La saison en cours** vient de l'API publique que le site de la LNB interroge
+lui-même (`api-prod.lnb.fr`). Les résultats arrivent sans délai, et chaque
+match porte sa **date réelle** et son numéro de journée — de quoi rejouer
+l'Elo dans le bon ordre.
+
+Cette API ne renvoie qu'une fenêtre glissante d'environ cinq semaines autour
+du jour courant et ignore les paramètres de date : les résultats sont donc
+**accumulés** dans le cache CSV à chaque passage. Une régénération quotidienne
+ne peut rien manquer, et le workflow réenregistre le cache dans le dépôt pour
+que l'historique de la saison ne dépende pas d'une seule exécution.
+
+**Les saisons passées** viennent des tableaux croisés de Wikipédia EN (modèle
+`sports results`), qui publient la grille complète domicile × extérieur :
+2023-24, 2024-25, 2025-26. Les pages antérieures ne publient pas de grille
+exploitable. Wikipédia sert aussi de repli si l'API officielle est
+indisponible.
+
+Pourquoi ne pas s'en tenir à Wikipédia ? Parce qu'elle n'est alimentée qu'au
+bon vouloir des contributeurs. Au 3 octobre 2026, la page 2026-27 existait
+avec ses 240 cellules — toutes vides, alors que deux journées avaient été
+jouées.
+
+Le cache est dans `data/raw/elite_<année>.csv`, une saison par fichier.
 
 ## Ce que le modèle ne sait pas
 
@@ -213,10 +232,14 @@ Ces limites sont réelles, autant les nommer.
   tout cela n'entre dans le modèle.
 * **Les playoffs passés.** La source ne publie que la saison régulière : le
   titre 2025-2026 de Monaco n'apporte aucun point Elo.
-* **L'ordre des matchs.** La grille donne les scores, pas les dates. L'ordre
-  chronologique interne à une saison est reconstruit par un calendrier
-  canonique en ronde. Le *jeu* de matchs joués est exact ; seul leur ordre est
-  approché, ce qui lisse un peu les dynamiques de forme.
+* **L'ordre des matchs, pour les saisons passées.** La grille Wikipédia donne
+  les scores, pas les dates : l'ordre chronologique y est reconstruit par un
+  calendrier canonique en ronde. Le *jeu* de matchs joués est exact, seul leur
+  ordre est approché. La saison en cours n'est pas concernée — l'API de la LNB
+  fournit les dates réelles.
+* **Les prolongations de la saison en cours.** L'API ne les signale pas sur la
+  route utilisée : ces matchs (environ 4 %) ne sont pas ramenés à 40 minutes
+  de jeu, contrairement à ceux des saisons passées.
 * **Les départages du règlement.** Le classement simulé départage les clubs à
   égalité de victoires par la différence de points générale, quand le règlement
   LNB passe d'abord par les confrontations directes.
@@ -254,7 +277,8 @@ changent beaucoup, pas un résultat mesuré.
 ```
 bepred/
   config.py      hyperparamètres, zones de classement, saisons chargées
-  data.py        téléchargement, normalisation des noms, calendrier canonique
+  data.py        sources, normalisation des noms, cache et accumulation
+  lnb.py         API officielle de la LNB (saison en cours)
   elo.py         moteur Elo basket
   poisson.py     modèle de points sur-dispersé et corrélé
   model.py       mélange Elo + Poisson

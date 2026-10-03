@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -37,6 +37,21 @@ jobs:
       - name: Generer le site
         run: python -m bepred exporter --sortie site --sims 20000
 
+      # L'API de la LNB ne renvoie qu'une fenetre de cinq semaines : le cache
+      # CSV est l'accumulateur de la saison, il doit survivre d'un passage a
+      # l'autre.
+      - name: Conserver les resultats accumules
+        run: |
+          if [ -n "$(git status --porcelain data/raw)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/raw
+            git commit -m "Resultats Betclic Elite au $(date -u +%Y-%m-%d) [skip ci]"
+            git push
+          else
+            echo "aucun nouveau resultat"
+          fi
+
       - name: Verifier que le site est complet
         run: |
           test -f site/monaco/index.html
@@ -44,7 +59,7 @@ jobs:
           test -f site/match/index.html
           pages=$(find site -name '*.html' | wc -l)
           echo "$pages pages generees"
-          test "$pages" -gt 500
+          test "$pages" -gt 400
 
       - uses: actions/upload-pages-artifact@v3
         with:

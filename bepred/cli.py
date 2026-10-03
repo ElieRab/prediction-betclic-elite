@@ -41,7 +41,12 @@ def _compare(args) -> None:
     matches = load_matches(cfg)
     model = BEModel.build(matches, cfg)
     runs = sc.run(model, matches, cfg, current_season(), n_sims=args.sims)
-    out = sc.compare(runs)[["club", "wins_mean_a", "wins_mean_b", "wins_mean_d",
+    comparaison = sc.compare(runs)
+    if comparaison.empty:
+        print("Une seule composition de championnat : rien a comparer.")
+        print("Clubs engages :", ", ".join(runs[next(iter(runs))]["teams"]))
+        return
+    out = comparaison[["club", "wins_mean_a", "wins_mean_b", "wins_mean_d",
                             "p_top_d", "p_playoffs_d", "p_rel_d"]].copy()
     for c in ("p_top_d", "p_playoffs_d", "p_rel_d"):
         out[c] = (100 * out[c]).round(1)
@@ -55,7 +60,7 @@ def _match(args) -> None:
     cfg = Config.load()
     matches = load_matches(cfg)
     model = BEModel.build(matches, cfg)
-    model.prepare_season(current_season(), sc.all_scenario_teams())
+    model.prepare_season(current_season(), sc.all_scenario_teams(matches, current_season()))
     p = model.predict(args.domicile, args.exterieur)
     print(f"{args.domicile} - {args.exterieur}")
     print(f"  score attendu : {p['lam_h']:.1f} - {p['lam_a']:.1f}")

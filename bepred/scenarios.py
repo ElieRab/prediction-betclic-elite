@@ -1,10 +1,16 @@
-"""Scenarios de composition de la Betclic Elite 2026-2027.
+"""Composition du championnat et projection de la saison.
 
-Quinze clubs sont certains d'y figurer. Le seizieme depend d'une procedure
-administrative : soit l'AS Monaco obtient son engagement, soit Saint-Quentin,
-relegue sportivement, est repeche. Le championnat n'etant pas le meme dans
-les deux cas -- ni le seizieme club, ni donc les adversaires des quinze
-autres -- chaque scenario est projete separement.
+Ce module a d'abord servi a projeter deux compositions concurrentes, le
+seizieme club de la Betclic Elite 2026-2027 dependant d'une procedure
+administrative. La decision est tombee : l'engagement de l'AS Monaco a ete
+refuse, Saint-Quentin a ete repeche, et le championnat a demarre le
+25 septembre 2026.
+
+L'hypothese Monaco n'est plus projetee, et pas seulement parce qu'elle est
+caduque : Saint-Quentin a joue, et rejouer la saison sans lui demanderait
+d'effacer des resultats reels. La machinerie de comparaison reste en place --
+elle resservira a la prochaine incertitude -- mais ne tourne qu'avec une
+composition.
 """
 from __future__ import annotations
 
@@ -16,21 +22,38 @@ from .data import SCENARIOS, scenario_teams
 from .season import project_season
 
 
-def all_scenario_teams() -> list[str]:
-    """Union des clubs apparaissant dans au moins un scenario."""
+def all_scenario_teams(matches: pd.DataFrame | None = None,
+                       season: int | None = None) -> list[str]:
+    """Union des clubs apparaissant dans au moins une composition."""
     teams: set[str] = set()
     for key in SCENARIOS:
-        teams.update(scenario_teams(key))
+        teams.update(composition(key, matches, season))
     return sorted(teams)
+
+
+def composition(key: str, matches: pd.DataFrame | None = None,
+                season: int | None = None) -> list[str]:
+    """Les seize clubs d'une composition.
+
+    Des que la saison a commence, la liste vient des resultats eux-memes :
+    plus fiable qu'une liste tenue a la main, et automatiquement juste si un
+    club change en cours de route.
+    """
+    declaree = scenario_teams(key)
+    if matches is None or season is None or matches.empty:
+        return declaree
+    joues = matches[matches.season == season]
+    vus = sorted(set(joues.home) | set(joues.away))
+    return vus if len(vus) >= 2 else declaree
 
 
 def run(model, matches: pd.DataFrame, cfg: Config, season: int,
         n_sims: int = 10000) -> dict[str, dict]:
     """Projette chaque scenario avec le meme modele et le meme alea."""
-    model.prepare_season(season, all_scenario_teams())
+    model.prepare_season(season, all_scenario_teams(matches, season))
     out = {}
     for key, meta in SCENARIOS.items():
-        teams = scenario_teams(key)
+        teams = composition(key, matches, season)
         proj = project_season(model, matches, cfg, teams, season, n_sims=n_sims)
         proj["meta"] = meta
         proj["key"] = key
@@ -38,13 +61,16 @@ def run(model, matches: pd.DataFrame, cfg: Config, season: int,
     return out
 
 
-def compare(runs: dict[str, dict], keys: tuple[str, str] = ("monaco", "saint-quentin")
+def compare(runs: dict[str, dict], keys: tuple[str, ...] | None = None
             ) -> pd.DataFrame:
     """Ecart, club par club, entre les deux scenarios.
 
     Seuls les quinze clubs communs sont comparables ; Monaco et Saint-Quentin
     apparaissent avec la valeur du scenario ou ils jouent.
     """
+    keys = keys or tuple(runs)
+    if len(keys) < 2:
+        return pd.DataFrame()       # une seule composition : rien a comparer
     a, b = runs[keys[0]], runs[keys[1]]
     fields = ("wins_mean", "p_top", "p_playin", "p_playoffs", "p_title", "p_rel")
     rows = []

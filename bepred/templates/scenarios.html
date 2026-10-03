@@ -1,82 +1,57 @@
 {% extends "base.html" %}
-{% block titre %}Scénarios – Betclic Élite{% endblock %}
+{% block titre %}Composition – Betclic Élite{% endblock %}
 {% block contenu %}
 
-<h1>Monaco ou Saint-Quentin ?</h1>
+<h1>Composition du championnat</h1>
 <p class="sub">
-  Quinze clubs sont assurés de disputer la Betclic Élite {{ saison }}. Le seizième
-  dépend d'une procédure administrative. Chaque hypothèse donne un championnat
-  différent — pas seulement pour le club concerné, mais pour les quinze autres,
-  qui n'affrontent pas le même adversaire deux fois dans la saison.
+  Seize clubs disputent la Betclic Élite {{ saison }}. Jusqu'au mois d'août, le
+  seizième n'était pas connu — cette page raconte comment la question s'est
+  réglée, et ce que le modèle en disait avant de le savoir.
 </p>
 
-<div class="bigcard">
-  {% for key, meta in scenarios.items() %}
-  <div class="card">
-    <h3>{{ meta.libelle }}</h3>
-    <p>{{ meta.resume }}</p>
-    <p style="margin-top:12px">
-      Favori : <b style="color:var(--txt)">{{ heads[key].favori }}</b>
-      ({{ heads[key].p_favori|pct }} %) ·
-      plus menacé : <b style="color:var(--txt)">{{ heads[key].menace }}</b>
-      ({{ heads[key].p_menace|pct }} %)
-    </p>
-    <p style="margin-top:8px">
-      <a href="{{ url_for('index', sc=key) }}">Voir le classement projeté →</a>
-    </p>
-  </div>
-  {% endfor %}
+<div class="panel pad">
+  <h2 style="margin-top:0">Ce qui s'est passé</h2>
+  <p style="color:var(--txt-dim); line-height:1.75; max-width:70ch">
+    La DNCCG, puis la chambre d'appel de la fédération, ont refusé l'engagement
+    de l'<b style="color:var(--txt)">AS Monaco</b> en championnat de France pour
+    {{ saison }}, faute de garanties suffisantes sur la viabilité économique du
+    club. <b style="color:var(--txt)">Saint-Quentin</b>, relégué sportivement à
+    l'issue de 2025-2026, a été repêché à sa place. Le championnat a démarré le
+    25 septembre 2026 avec la composition ci-dessous.
+  </p>
+  <p style="color:var(--txt-dim); line-height:1.75; max-width:70ch">
+    L'hypothèse Monaco n'est plus projetée, et pas seulement parce qu'elle est
+    caduque : Saint-Quentin a déjà joué. Rejouer la saison sans lui demanderait
+    d'effacer des résultats réels, ce qui ne serait plus une projection mais une
+    réécriture.
+  </p>
 </div>
 
-<h2>Ce que change le seizième club</h2>
-<p class="sub">
-  Écarts entre l'hypothèse Monaco et l'hypothèse Saint-Quentin, club par club.
-  Une valeur positive signifie que le club s'en sort mieux avec Monaco dans le
-  championnat.
-</p>
-
+<h2>Les seize clubs</h2>
 <div class="panel">
   <div class="scroll">
   <table>
     <thead>
       <tr>
         <th style="text-align:left">Club</th>
-        <th colspan="3" style="text-align:center">Victoires projetées</th>
-        <th colspan="3" style="text-align:center">Top 6</th>
-        <th colspan="3" style="text-align:center">Playoffs</th>
-        <th colspan="3" style="text-align:center">Relégation</th>
-      </tr>
-      <tr>
-        <th></th>
-        <th>Monaco</th><th>St-Q.</th><th>Δ</th>
-        <th>Monaco</th><th>St-Q.</th><th>Δ</th>
-        <th>Monaco</th><th>St-Q.</th><th>Δ</th>
-        <th>Monaco</th><th>St-Q.</th><th>Δ</th>
+        <th>Elo</th><th>J</th><th>V</th><th>Diff.</th>
+        <th>V projetées</th><th>Playoffs</th><th>Relégation</th>
       </tr>
     </thead>
     <tbody>
-      {% for r in cmp %}
-      <tr>
+      {% for r in rows %}
+      <tr class="zone {% if r.rang <= zones.direct %}z-top{% elif r.rang <= zones.playin %}z-playin{% elif r.rang >= zones.relegation %}z-rel{% endif %}">
         <td class="club">
           <span class="dot" style="background: {{ r.club|couleur }}"></span>{{ r.club }}
-          {% if not r.commun %}<span class="only">un seul scénario</span>{% endif %}
+          {% if r.club == sc_meta.seizieme %}<span class="only">repêché</span>{% endif %}
         </td>
-        <td class="num">{{ '%.1f'|format(r.wins_mean_a) if r.wins_mean_a == r.wins_mean_a else '–' }}</td>
-        <td class="num">{{ '%.1f'|format(r.wins_mean_b) if r.wins_mean_b == r.wins_mean_b else '–' }}</td>
-        <td class="num {{ 'delta-pos' if r.wins_mean_d > 0 else 'delta-neg' }}">
-          {{ '%+.1f'|format(r.wins_mean_d) if r.wins_mean_d == r.wins_mean_d else '–' }}</td>
-        <td class="num">{{ r.p_top_a|pct if r.p_top_a == r.p_top_a else '–' }}</td>
-        <td class="num">{{ r.p_top_b|pct if r.p_top_b == r.p_top_b else '–' }}</td>
-        <td class="num {{ 'delta-pos' if r.p_top_d > 0 else 'delta-neg' }}">
-          {{ '%+.1f'|format(100 * r.p_top_d) if r.p_top_d == r.p_top_d else '–' }}</td>
-        <td class="num">{{ r.p_playoffs_a|pct if r.p_playoffs_a == r.p_playoffs_a else '–' }}</td>
-        <td class="num">{{ r.p_playoffs_b|pct if r.p_playoffs_b == r.p_playoffs_b else '–' }}</td>
-        <td class="num {{ 'delta-pos' if r.p_playoffs_d > 0 else 'delta-neg' }}">
-          {{ '%+.1f'|format(100 * r.p_playoffs_d) if r.p_playoffs_d == r.p_playoffs_d else '–' }}</td>
-        <td class="num">{{ r.p_rel_a|pct if r.p_rel_a == r.p_rel_a else '–' }}</td>
-        <td class="num">{{ r.p_rel_b|pct if r.p_rel_b == r.p_rel_b else '–' }}</td>
-        <td class="num {{ 'delta-neg' if r.p_rel_d > 0 else 'delta-pos' }}">
-          {{ '%+.1f'|format(100 * r.p_rel_d) if r.p_rel_d == r.p_rel_d else '–' }}</td>
+        <td class="num dim">{{ '%.0f'|format(elo[r.club]) }}</td>
+        <td class="num dim">{{ r.joues }}</td>
+        <td class="num">{{ r.v_now }}</td>
+        <td class="num dim">{{ r.diff_now|signe }}</td>
+        <td class="num"><b>{{ '%.1f'|format(r.v) }}</b></td>
+        <td class="num" style="background: {{ r.po|heat }}">{{ r.po|pct }}</td>
+        <td class="num" style="background: {{ r.rel|cold }}">{{ r.rel|pct }}</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -84,43 +59,38 @@
   </div>
 </div>
 
-<h2>Les deux classements côte à côte</h2>
-<div class="two-cols">
-  {% for key, meta in scenarios.items() %}
-  <div>
-    <h3 style="font-size:15px; margin:0 0 10px">{{ meta.libelle }}</h3>
-    <div class="panel">
-      <div class="scroll">
-      <table>
-        <thead><tr>
-          <th style="text-align:left">#</th><th style="text-align:left">Club</th>
-          <th>V</th><th>Top 6</th><th>Titre</th><th>Relég.</th>
-        </tr></thead>
-        <tbody>
-          {% for r in tables[key] %}
-          <tr class="zone {% if r.rang <= zones.direct %}z-top{% elif r.rang <= zones.playin %}z-playin{% elif r.rang >= zones.relegation %}z-rel{% endif %}">
-            <td class="num dim" style="text-align:left">{{ r.rang }}</td>
-            <td class="club"><span class="dot" style="background: {{ r.club|couleur }}"></span>{{ r.club }}</td>
-            <td class="num">{{ '%.1f'|format(r.v) }}</td>
-            <td class="num" style="background: {{ r.top|heat }}">{{ r.top|pct0 }}</td>
-            <td class="num" style="background: {{ r.titre|heat }}">{{ r.titre|pct0 }}</td>
-            <td class="num" style="background: {{ r.rel|cold }}">{{ r.rel|pct0 }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
+<h2>Ce que le modèle disait avant la décision</h2>
+<p class="sub">
+  Projection d'avant-saison, datée du 28 août 2026, quand les deux hypothèses
+  étaient encore ouvertes. Conservée telle quelle : une prévision qu'on corrige
+  après coup ne vaut plus rien.
+</p>
+
+<div class="panel pad">
+  <p style="color:var(--txt-dim); line-height:1.75; max-width:70ch">
+    Chacun des quinze clubs communs gagnait <b style="color:var(--txt)">+0,6
+    victoire</b> dans l'hypothèse Saint-Quentin plutôt que Monaco — l'écart
+    entre affronter deux fois un prétendant au titre et deux fois un promu.
+  </p>
+  <p style="color:var(--txt-dim); line-height:1.75; max-width:70ch">
+    L'effet se concentrait sur les clubs dont la saison se joue à une victoire
+    près : Chalon, Strasbourg et Dijon perdaient <b style="color:var(--txt)">12
+    à 13 points</b> de probabilité de playoffs quand Monaco était dans le
+    championnat, tandis que Gravelines, Pau et Roanne prenaient
+    <b style="color:var(--txt)">7 points</b> de risque de relégation
+    supplémentaire.
+  </p>
+  <p style="color:var(--txt-dim); line-height:1.75; max-width:70ch">
+    Autrement dit : l'exclusion de Monaco a mécaniquement desserré le haut et
+    le bas de tableau pour tout le monde. C'est le seul enseignement qu'on
+    puisse encore tirer de la comparaison — la suite se joue sur le terrain.
+  </p>
 </div>
 
 <div class="note">
-  <b>Pourquoi les quinze autres clubs bougent aussi.</b> Remplacer Monaco par
-  Saint-Quentin, c'est échanger deux matchs contre un prétendant au titre
-  contre deux matchs contre un promu. Sur trente rencontres, l'effet se compte
-  en fractions de victoire — mais il se concentre sur les clubs dont la saison
-  se joue à une victoire près, en haut comme en bas de tableau.
+  <b>Les anciens liens continuent de fonctionner.</b> Les adresses en
+  <code>/monaco/…</code>, publiées avant la décision, redirigent vers la
+  composition officielle.
 </div>
 
 {% endblock %}
