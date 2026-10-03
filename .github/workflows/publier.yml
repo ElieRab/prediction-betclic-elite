@@ -40,7 +40,11 @@ jobs:
       # L'API de la LNB ne renvoie qu'une fenetre de cinq semaines : le cache
       # CSV est l'accumulateur de la saison, il doit survivre d'un passage a
       # l'autre.
+      # Non bloquant : si le depot n'autorise pas l'ecriture aux Actions
+      # (Settings > Actions > General > Workflow permissions), le site doit
+      # tout de meme etre publie.
       - name: Conserver les resultats accumules
+        continue-on-error: true
         run: |
           if [ -n "$(git status --porcelain data/raw)" ]; then
             git config user.name "github-actions[bot]"
