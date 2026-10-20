@@ -1,17 +1,25 @@
 season,date,home,away,hp,ap,ot,journee
 2026,2026-09-20,Nanterre,Gravelines-Dunkerque,101,73,0,1
+2026,2026-09-28,Strasbourg,Roanne,72,70,0,2
 2026,2026-10-06,ASVEL,Roanne,96,77,0,3
 2026,2026-10-06,Chalon,Nancy,108,67,0,3
+2026,2026-10-06,Pau-Lacq-Orthez,Saint-Quentin,102,89,0,3
 2026,2026-10-22,Limoges,Saint-Quentin,92,75,0,5
 2026,2026-10-22,Nanterre,Pau-Lacq-Orthez,78,64,0,5
+2026,2026-11-15,Limoges,ASVEL,94,97,1,8
 2026,2026-11-15,Strasbourg,Boulazac,87,75,0,8
 2026,2026-12-01,Dijon,Limoges,108,96,0,10
 2026,2026-12-01,Nancy,Cholet,76,85,0,10
+2026,2026-12-01,Paris,Boulazac,90,75,0,10
 2026,2026-12-09,Chalon,Limoges,82,74,0,11
 2026,2026-12-17,Roanne,Nanterre,93,83,0,12
+2026,2027-01-02,Nancy,Nanterre,80,65,0,14
 2026,2027-01-18,Cholet,Pau-Lacq-Orthez,85,79,0,16
+2026,2027-01-26,Le Mans,JL Bourg,91,90,0,17
 2026,2027-02-03,Paris,Strasbourg,98,84,0,18
+2026,2027-02-11,Gravelines-Dunkerque,Dijon,83,92,0,19
 2026,2027-02-19,Boulazac,JL Bourg,84,73,0,20
+2026,2027-02-27,Cholet,Chalon,77,86,0,21
 2026,2027-02-27,Nancy,Paris,73,78,0,21
 2026,2027-02-27,Saint-Quentin,JL Bourg,106,103,1,21
 2026,2027-03-07,Le Mans,Paris,101,103,0,22
